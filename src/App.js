@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import GAME_DATA from "./data/gamedata";
 //import GAME_DATA_TEST from "../data/gamedata-test";
-import utils from "./math-utils";
+import utils from "./utils";
 
 // Replace GAME_DATA_TEST with GAME_DATA for actual questions
 const GAME_QUESTIONS = utils.shuffleArray(GAME_DATA);
@@ -18,19 +18,19 @@ const YourAnswer = (props) => (
 );
 
 const Gotowikipage = (props) => (
-  <button className="infoButton" onClick={() => props.clic(props.keyword)}>
+  <button className="infoButton" onClick={() => props.onClick(props.keyword)}>
     Chercher {props.keyword} sur Wikipedia
   </button>
 );
 
 const FigureButton = (props) => (
-  <button className="answerButton" onClick={() => props.perform("figure")}>
+  <button className="answerButton" onClick={() => props.onClick("figure")}>
     Figure de style
   </button>
 );
 
 const PathologieButton = (props) => (
-  <button className="answerButton" onClick={() => props.perform("pathologie")}>
+  <button className="answerButton" onClick={() => props.onClick("pathologie")}>
     Pathologie
   </button>
 );
@@ -64,7 +64,7 @@ const Figures = () => {
 
   const gameStatus = questionId === MAX_ID ? "fini" : "actif";
 
-  const onButtonClicka = (nature) => {
+  const onButtonClick = (nature) => {
     if (gameStatus === "actif") {
       answerFunction(nature);
     }
@@ -89,14 +89,14 @@ const Figures = () => {
         />
       </div>
       <div className="answerzone">
-        <FigureButton perform={onButtonClicka} />
-        <PathologieButton perform={onButtonClicka} />
+        <FigureButton onClick={onButtonClick} />
+        <PathologieButton onClick={onButtonClick} />
         {gameStatus === "actif" && <YourAnswer correctAnswer={isCorrect} />}
       </div>
       <div>
         {questionId > 0 && (
           <Gotowikipage
-            clic={goToPage}
+            onClick={goToPage}
             keyword={GAME_QUESTIONS[questionId - 1].value}
           />
         )}
