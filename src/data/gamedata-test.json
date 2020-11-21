@@ -1,0 +1,12 @@
+[
+	{"value": "patho1", "type": "pathologie"},
+	{"value": "patho2", "type": "pathologie"},
+	{"value": "patho3", "type": "pathologie"},
+	{"value": "patho4", "type": "pathologie"},
+	{"value": "patho5", "type": "pathologie"},
+	{"value": "patho6", "type": "pathologie"},
+	{"value": "figure1", "type": "figure"},
+	{"value": "figure2", "type": "figure"},
+	{"value": "figure3", "type": "figure"},
+	{"value": "figure4", "type": "figure"}
+]
