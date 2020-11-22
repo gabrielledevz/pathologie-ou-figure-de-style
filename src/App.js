@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-//import GAME_DATA from "./data/gamedata";
-import GAME_DATA_TEST from "./data/gamedata-test";
+import GAME_DATA from "./data/gamedata";
+//import GAME_DATA_TEST from "./data/gamedata-test";
 import "./App.css";
 import { shuffleArray } from "./utils";
 
 // Styles de bouton : signifier que tel bouton a été cliqué en affichant les infos (griser par ex)
 
 // Replace GAME_DATA_TEST with GAME_DATA for actual questions
-const GAME_QUESTIONS = shuffleArray(GAME_DATA_TEST);
+const GAME_QUESTIONS = shuffleArray(GAME_DATA);
 const MAX_ID = GAME_QUESTIONS.length - 1;
 
 const Titre = () => <div>Pathologie ou figure de style ?</div>;
@@ -15,7 +15,7 @@ const Titre = () => <div>Pathologie ou figure de style ?</div>;
 const Question = (props) => <div>{props.question}</div>;
 
 const AnswerResult = (props) => (
-  <div className="message">
+  <div className="answer-result">
     {props.correctAnswer === "correct"
       ? "C'est la bonne réponse !"
       : props.correctAnswer === "wrong"
@@ -28,8 +28,14 @@ const AnswerInfo = (props) => (
   <div className="answer-information">
     <AnswerResult correctAnswer={props.correctAnswer} />
     <div className="infozone">
-      <div className="definition">{props.definition}</div>
-      <Gotowikipage onClick={props.wikiPageAction} keyword={props.keyword} />
+      <div className="definition">
+        {props.question.value}, {props.question.genre} :{" "}
+        {props.question.definition}
+      </div>
+      {props.question.type === "figure" && (
+        <div className="exemple">Exemple : {props.question.exemple}</div>
+      )}
+      <Gotowikipage keyword={props.question.value} />
     </div>
     <button className="nextButton" onClick={props.displayNext}>
       Question suivante
@@ -37,11 +43,17 @@ const AnswerInfo = (props) => (
   </div>
 );
 
-const Gotowikipage = (props) => (
-  <button className="infoButton" onClick={() => props.onClick(props.keyword)}>
-    Chercher {props.keyword} sur Wikipedia
-  </button>
-);
+const Gotowikipage = (props) => {
+  const goToPage = (keyword) => {
+    const url = "https://fr.wikipedia.org/wiki/" + keyword;
+    window.open(url, "_blank");
+  };
+  return (
+    <button className="infoButton" onClick={() => goToPage(props.keyword)}>
+      Chercher {props.keyword} sur Wikipedia
+    </button>
+  );
+};
 
 const FigureButton = (props) => (
   <button className="answerButton" onClick={() => props.onClick("figure")}>
@@ -102,11 +114,6 @@ const Figures = () => {
 
   const question = GAME_QUESTIONS[questionId];
 
-  const goToPage = (keyword) => {
-    const url = "https://fr.wikipedia.org/wiki/" + keyword;
-    window.open(url, "_blank");
-  };
-
   const displayNext = () => {
     displayNextQuestion();
   };
@@ -138,9 +145,7 @@ const Figures = () => {
         {answerStatus !== "pending" && (
           <AnswerInfo
             correctAnswer={answerStatus}
-            definition={question.definition}
-            wikiPageAction={goToPage}
-            keyword={question.value}
+            question={question}
             displayNext={displayNext}
           />
         )}
