@@ -1,12 +1,12 @@
 [
-	{"value": "patho1", "type": "pathologie"},
-	{"value": "patho2", "type": "pathologie"},
-	{"value": "patho3", "type": "pathologie"},
-	{"value": "patho4", "type": "pathologie"},
-	{"value": "patho5", "type": "pathologie"},
-	{"value": "patho6", "type": "pathologie"},
-	{"value": "figure1", "type": "figure"},
-	{"value": "figure2", "type": "figure"},
-	{"value": "figure3", "type": "figure"},
-	{"value": "figure4", "type": "figure"}
+	{"value": "patho1", "type": "pathologie", "definition": "Patho1 : blablabla"},
+	{"value": "patho2", "type": "pathologie", "definition": "Patho2 : blablabla"},
+	{"value": "patho3", "type": "pathologie", "definition": "Patho3 : blablabla"},
+	{"value": "patho4", "type": "pathologie", "definition": "Patho4 : blablabla"},
+	{"value": "patho5", "type": "pathologie", "definition": "Patho5 : blablabla"},
+	{"value": "patho6", "type": "pathologie", "definition": "Patho6 : blablabla"},
+	{"value": "figure1", "type": "figure", "definition": "Figure1 : blablabla"},
+	{"value": "figure2", "type": "figure", "definition": "Figure2 : blablabla"},
+	{"value": "figure3", "type": "figure", "definition": "Figure3 : blablabla"},
+	{"value": "figure4", "type": "figure", "definition": "Figure4 : blablabla"}
 ]
