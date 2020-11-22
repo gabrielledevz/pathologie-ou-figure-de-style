@@ -5,6 +5,7 @@ import "./App.css";
 import { shuffleArray } from "./utils";
 
 // Styles de bouton : signifier que tel bouton a été cliqué en affichant les infos (griser par ex)
+// Gérer la fin de partie !
 
 // Replace GAME_DATA_TEST with GAME_DATA for actual questions
 const GAME_QUESTIONS = shuffleArray(GAME_DATA);
@@ -32,24 +33,26 @@ const AnswerResult = (props) => (
   </div>
 );
 
-const AnswerInfo = (props) => (
-  <div className="answer-information">
-    <AnswerResult answerStatus={props.result} />
-    <div className="infozone">
-      <div className="definition">
-        {props.question.value}, {props.question.genre} :{" "}
-        {props.question.definition}
+const AnswerInfo = (props) => {
+  const question = props.question;
+  return (
+    <div className="answer-information">
+      <AnswerResult answerStatus={props.result} />
+      <div className="infozone">
+        <div className="definition">
+          {question.word}, {question.genre} : {question.definition}
+        </div>
+        {question.type === "figure" && (
+          <div className="exemple">Exemple : {question.example}</div>
+        )}
+        <Gotowikipage keyword={question.word} />
       </div>
-      {props.question.type === "figure" && (
-        <div className="exemple">Exemple : {props.question.exemple}</div>
-      )}
-      <Gotowikipage keyword={props.question.value} />
+      <button className="nextButton" onClick={props.displayNext}>
+        Question suivante
+      </button>
     </div>
-    <button className="nextButton" onClick={props.displayNext}>
-      Question suivante
-    </button>
-  </div>
-);
+  );
+};
 
 const Gotowikipage = (props) => {
   const goToPage = (keyword) => {
@@ -114,8 +117,6 @@ const Figures = () => {
     gameStatus,
   } = useGameState();
 
-  //  const gameStatus = questionId === MAX_ID ? "fini" : "actif";
-
   const onButtonClick = (nature) => {
     if (
       gameStatus === GAME_STATES.BEGIN ||
@@ -142,7 +143,7 @@ const Figures = () => {
           <Question
             question={
               gameStatus !== GAME_STATES.END
-                ? question.value
+                ? question.word
                 : "Merci d'avoir joué !"
             }
           />
@@ -160,8 +161,8 @@ const Figures = () => {
         {gameStatus !== GAME_STATES.PENDING &&
           gameStatus !== GAME_STATES.BEGIN && (
             <AnswerInfo
-              result={gameStatus}
               question={question}
+              result={gameStatus}
               displayNext={displayNext}
             />
           )}
