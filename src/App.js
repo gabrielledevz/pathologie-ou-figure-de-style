@@ -10,15 +10,23 @@ import { shuffleArray } from "./utils";
 const GAME_QUESTIONS = shuffleArray(GAME_DATA);
 const MAX_ID = GAME_QUESTIONS.length - 1;
 
+const GAME_STATES = {
+  BEGIN: "begin",
+  END: "end",
+  CORRECT: "correct",
+  WRONG: "wrong",
+  PENDING: "pending",
+};
+
 const Titre = () => <div>Pathologie ou figure de style ?</div>;
 
 const Question = (props) => <div>{props.question}</div>;
 
 const AnswerResult = (props) => (
   <div className="answer-result">
-    {props.answerStatus === "correct"
+    {props.answerStatus === GAME_STATES.CORRECT
       ? "C'est la bonne réponse !"
-      : props.answerStatus === "wrong"
+      : props.answerStatus === GAME_STATES.WRONG
       ? "Vous vous êtes trompé."
       : ""}
   </div>
@@ -70,21 +78,21 @@ const PathologieButton = (props) => (
 const useGameState = () => {
   const [questionId, setQuestionId] = useState(0);
   const [score, setScore] = useState(0);
-  const [gameStatus, setGameStatus] = useState("begin");
+  const [gameStatus, setGameStatus] = useState(GAME_STATES.BEGIN);
 
   const answerFunction = (nature) => {
     const answerIsCorrect = nature === GAME_QUESTIONS[questionId].type;
 
-    setGameStatus(answerIsCorrect ? "correct" : "wrong");
+    setGameStatus(answerIsCorrect ? GAME_STATES.CORRECT : GAME_STATES.WRONG);
     setScore(answerIsCorrect ? score + 1 : score);
   };
 
   const displayNextQuestion = () => {
     if (questionId < MAX_ID - 1) {
       setQuestionId(questionId + 1);
-      setGameStatus("pending");
+      setGameStatus(GAME_STATES.PENDING);
     } else {
-      setGameStatus("end");
+      setGameStatus(GAME_STATES.END);
     }
   };
 
@@ -109,7 +117,10 @@ const Figures = () => {
   //  const gameStatus = questionId === MAX_ID ? "fini" : "actif";
 
   const onButtonClick = (nature) => {
-    if (gameStatus === "begin" || gameStatus === "pending") {
+    if (
+      gameStatus === GAME_STATES.BEGIN ||
+      gameStatus === GAME_STATES.PENDING
+    ) {
       answerFunction(nature);
     }
   };
@@ -130,7 +141,9 @@ const Figures = () => {
         <div className="question">
           <Question
             question={
-              gameStatus !== "end" ? question.value : "Merci d'avoir joué !"
+              gameStatus !== GAME_STATES.END
+                ? question.value
+                : "Merci d'avoir joué !"
             }
           />
         </div>
@@ -144,13 +157,14 @@ const Figures = () => {
           <FigureButton onClick={onButtonClick} />
           <PathologieButton onClick={onButtonClick} />
         </div>
-        {gameStatus !== "pending" && gameStatus !== "begin" && (
-          <AnswerInfo
-            result={gameStatus}
-            question={question}
-            displayNext={displayNext}
-          />
-        )}
+        {gameStatus !== GAME_STATES.PENDING &&
+          gameStatus !== GAME_STATES.BEGIN && (
+            <AnswerInfo
+              result={gameStatus}
+              question={question}
+              displayNext={displayNext}
+            />
+          )}
       </div>
     </div>
   );
