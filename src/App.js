@@ -96,11 +96,11 @@ const Figures = () => {
     }
   };
 
+  const previousQuestion = GAME_QUESTIONS[questionId - 1];
   const question = GAME_QUESTIONS[questionId];
 
   const goToPage = (keyword) => {
     const url = "https://fr.wikipedia.org/wiki/" + keyword;
-    console.log("url " + url);
     window.open(url, "_blank");
   };
 
@@ -120,7 +120,7 @@ const Figures = () => {
             question={
               gameStatus === "actif"
                 ? questionAnswered
-                  ? GAME_QUESTIONS[questionId - 1].value
+                  ? previousQuestion.value
                   : question.value
                 : "Merci d'avoir joué !"
             }
