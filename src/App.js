@@ -14,7 +14,7 @@ const Titre = () => <div>Pathologie ou figure de style ?</div>;
 
 const Question = (props) => <div>{props.question}</div>;
 
-const YourAnswer = (props) => (
+const AnswerResult = (props) => (
   <div className="message">
     {props.correctAnswer === "correct"
       ? "C'est la bonne réponse !"
@@ -26,24 +26,20 @@ const YourAnswer = (props) => (
 
 const AnswerInfo = (props) => (
   <div className="answer-information">
-    <YourAnswer correctAnswer={props.correctAnswer} />
-    <div className="wikizone">
+    <AnswerResult correctAnswer={props.correctAnswer} />
+    <div className="infozone">
       <div className="definition">{props.definition}</div>
       <Gotowikipage onClick={props.wikiPageAction} keyword={props.keyword} />
     </div>
-    <NextButton onClick={props.displayNext} />
+    <button className="nextButton" onClick={props.displayNext}>
+      Question suivante
+    </button>
   </div>
 );
 
 const Gotowikipage = (props) => (
   <button className="infoButton" onClick={() => props.onClick(props.keyword)}>
     Chercher {props.keyword} sur Wikipedia
-  </button>
-);
-
-const NextButton = (props) => (
-  <button className="nextButton" onClick={props.onClick}>
-    Suivant
   </button>
 );
 
@@ -135,7 +131,7 @@ const Figures = () => {
         </div>
       </div>
       <div className="lower">
-        <div className="answerzone">
+        <div className="buttonzone">
           <FigureButton onClick={onButtonClick} />
           <PathologieButton onClick={onButtonClick} />
         </div>
