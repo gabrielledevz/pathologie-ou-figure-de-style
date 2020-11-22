@@ -16,9 +16,9 @@ const Question = (props) => <div>{props.question}</div>;
 
 const AnswerResult = (props) => (
   <div className="answer-result">
-    {props.correctAnswer === "correct"
+    {props.answerStatus === "correct"
       ? "C'est la bonne réponse !"
-      : props.correctAnswer === "wrong"
+      : props.answerStatus === "wrong"
       ? "Vous vous êtes trompé."
       : ""}
   </div>
@@ -26,7 +26,7 @@ const AnswerResult = (props) => (
 
 const AnswerInfo = (props) => (
   <div className="answer-information">
-    <AnswerResult correctAnswer={props.correctAnswer} />
+    <AnswerResult answerStatus={props.result} />
     <div className="infozone">
       <div className="definition">
         {props.question.value}, {props.question.genre} :{" "}
@@ -70,19 +70,21 @@ const PathologieButton = (props) => (
 const useGameState = () => {
   const [questionId, setQuestionId] = useState(0);
   const [score, setScore] = useState(0);
-  const [answerStatus, setAnswerStatus] = useState("pending");
+  const [gameStatus, setGameStatus] = useState("begin");
 
   const answerFunction = (nature) => {
     const answerIsCorrect = nature === GAME_QUESTIONS[questionId].type;
 
-    setAnswerStatus(answerIsCorrect ? "correct" : "wrong");
+    setGameStatus(answerIsCorrect ? "correct" : "wrong");
     setScore(answerIsCorrect ? score + 1 : score);
   };
 
   const displayNextQuestion = () => {
-    setAnswerStatus("pending");
     if (questionId < MAX_ID - 1) {
       setQuestionId(questionId + 1);
+      setGameStatus("pending");
+    } else {
+      setGameStatus("end");
     }
   };
 
@@ -90,8 +92,8 @@ const useGameState = () => {
     questionId,
     score,
     answerFunction,
-    answerStatus,
     displayNextQuestion,
+    gameStatus,
   };
 };
 
@@ -100,14 +102,14 @@ const Figures = () => {
     questionId,
     score,
     answerFunction,
-    answerStatus,
     displayNextQuestion,
+    gameStatus,
   } = useGameState();
 
-  const gameStatus = questionId === MAX_ID ? "fini" : "actif";
+  //  const gameStatus = questionId === MAX_ID ? "fini" : "actif";
 
   const onButtonClick = (nature) => {
-    if (gameStatus === "actif" && answerStatus === "pending") {
+    if (gameStatus === "begin" || gameStatus === "pending") {
       answerFunction(nature);
     }
   };
@@ -128,7 +130,7 @@ const Figures = () => {
         <div className="question">
           <Question
             question={
-              gameStatus === "actif" ? question.value : "Merci d'avoir joué !"
+              gameStatus !== "end" ? question.value : "Merci d'avoir joué !"
             }
           />
         </div>
@@ -142,9 +144,9 @@ const Figures = () => {
           <FigureButton onClick={onButtonClick} />
           <PathologieButton onClick={onButtonClick} />
         </div>
-        {answerStatus !== "pending" && (
+        {gameStatus !== "pending" && gameStatus !== "begin" && (
           <AnswerInfo
-            correctAnswer={answerStatus}
+            result={gameStatus}
             question={question}
             displayNext={displayNext}
           />
