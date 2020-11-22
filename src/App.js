@@ -16,9 +16,11 @@ const Question = (props) => <div>{props.question}</div>;
 
 const YourAnswer = (props) => (
   <div className="message">
-    {props.correctAnswer
+    {props.correctAnswer === "correct"
       ? "C'est la bonne réponse !"
-      : "Vous vous êtes trompé."}
+      : props.correctAnswer === "wrong"
+      ? "Vous vous êtes trompé."
+      : ""}
   </div>
 );
 
@@ -49,32 +51,30 @@ const PathologieButton = (props) => (
 const useGameState = () => {
   const [questionId, setQuestionId] = useState(0);
   const [score, setScore] = useState(0);
-  const [isCorrect, setIsCorrect] = useState(true);
-  const [questionAnswered, setQuestionAnswered] = useState(false);
+  const [answerStatus, setAnswerStatus] = useState("pending");
 
   const answerFunction = (nature) => {
     const answerIsCorrect = nature === GAME_QUESTIONS[questionId].type;
 
-    setIsCorrect(answerIsCorrect);
+    setAnswerStatus(answerIsCorrect ? "correct" : "wrong");
     setScore(answerIsCorrect ? score + 1 : score);
-    setQuestionAnswered(true);
+  };
 
+  const displayNextQuestion = () => {
+    setAnswerStatus("pending");
     if (questionId < MAX_ID - 1) {
       setQuestionId(questionId + 1);
     }
-  };
-
-  const resetQuestionAnswered = () => {
-    setQuestionAnswered(false);
   };
 
   return {
     questionId,
     score,
     answerFunction,
-    isCorrect,
-    questionAnswered,
-    resetQuestionAnswered,
+    //isCorrect,
+    answerStatus,
+    //  questionAnswered,
+    displayNextQuestion,
   };
 };
 
@@ -82,21 +82,19 @@ const Figures = () => {
   const {
     questionId,
     score,
-    isCorrect,
     answerFunction,
-    questionAnswered,
-    resetQuestionAnswered,
+    answerStatus,
+    displayNextQuestion,
   } = useGameState();
 
   const gameStatus = questionId === MAX_ID ? "fini" : "actif";
 
   const onButtonClick = (nature) => {
-    if (gameStatus === "actif" && !questionAnswered) {
+    if (gameStatus === "actif" && answerStatus === "pending") {
       answerFunction(nature);
     }
   };
 
-  const previousQuestion = GAME_QUESTIONS[questionId - 1];
   const question = GAME_QUESTIONS[questionId];
 
   const goToPage = (keyword) => {
@@ -105,7 +103,7 @@ const Figures = () => {
   };
 
   const displayNext = () => {
-    resetQuestionAnswered();
+    displayNextQuestion();
   };
 
   return (
@@ -118,11 +116,7 @@ const Figures = () => {
         <div className="question">
           <Question
             question={
-              gameStatus === "actif"
-                ? questionAnswered
-                  ? previousQuestion.value
-                  : question.value
-                : "Merci d'avoir joué !"
+              gameStatus === "actif" ? question.value : "Merci d'avoir joué !"
             }
           />
         </div>
@@ -136,17 +130,12 @@ const Figures = () => {
           <FigureButton onClick={onButtonClick} />
           <PathologieButton onClick={onButtonClick} />
         </div>
-        {questionAnswered && (
+        {answerStatus !== "pending" && (
           <div className="information">
-            <YourAnswer correctAnswer={isCorrect} />
+            <YourAnswer correctAnswer={answerStatus} />
             <div className="wikizone">
-              <div className="definition">
-                {GAME_QUESTIONS[questionId - 1].definition}
-              </div>
-              <Gotowikipage
-                onClick={goToPage}
-                keyword={GAME_QUESTIONS[questionId - 1].value}
-              />
+              <div className="definition">{question.definition}</div>
+              <Gotowikipage onClick={goToPage} keyword={question.value} />
             </div>
             <NextButton onClick={displayNext} />
           </div>
