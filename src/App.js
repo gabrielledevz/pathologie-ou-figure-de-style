@@ -24,6 +24,17 @@ const YourAnswer = (props) => (
   </div>
 );
 
+const AnswerInfo = (props) => (
+  <div className="answer-information">
+    <YourAnswer correctAnswer={props.correctAnswer} />
+    <div className="wikizone">
+      <div className="definition">{props.definition}</div>
+      <Gotowikipage onClick={props.wikiPageAction} keyword={props.keyword} />
+    </div>
+    <NextButton onClick={props.displayNext} />
+  </div>
+);
+
 const Gotowikipage = (props) => (
   <button className="infoButton" onClick={() => props.onClick(props.keyword)}>
     Chercher {props.keyword} sur Wikipedia
@@ -71,9 +82,7 @@ const useGameState = () => {
     questionId,
     score,
     answerFunction,
-    //isCorrect,
     answerStatus,
-    //  questionAnswered,
     displayNextQuestion,
   };
 };
@@ -131,14 +140,13 @@ const Figures = () => {
           <PathologieButton onClick={onButtonClick} />
         </div>
         {answerStatus !== "pending" && (
-          <div className="information">
-            <YourAnswer correctAnswer={answerStatus} />
-            <div className="wikizone">
-              <div className="definition">{question.definition}</div>
-              <Gotowikipage onClick={goToPage} keyword={question.value} />
-            </div>
-            <NextButton onClick={displayNext} />
-          </div>
+          <AnswerInfo
+            correctAnswer={answerStatus}
+            definition={question.definition}
+            wikiPageAction={goToPage}
+            keyword={question.value}
+            displayNext={displayNext}
+          />
         )}
       </div>
     </div>
