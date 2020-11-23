@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import GAME_DATA from "./data/gamedata";
-//import GAME_DATA_TEST from "./data/gamedata-test";
+//import GAME_DATA from "./data/gamedata";
+import GAME_DATA_TEST from "./data/gamedata-test";
 import "./App.css";
 import { shuffleArray } from "./utils";
 
@@ -8,7 +8,7 @@ import { shuffleArray } from "./utils";
 // Gérer la fin de partie !
 
 // Replace GAME_DATA_TEST with GAME_DATA for actual questions
-const GAME_QUESTIONS = shuffleArray(GAME_DATA);
+const GAME_QUESTIONS = shuffleArray(GAME_DATA_TEST);
 const MAX_ID = GAME_QUESTIONS.length - 1;
 
 const GAME_STATES = {
@@ -91,7 +91,7 @@ const useGameState = () => {
   };
 
   const displayNextQuestion = () => {
-    if (questionId < MAX_ID - 1) {
+    if (questionId < MAX_ID) {
       setQuestionId(questionId + 1);
       setGameStatus(GAME_STATES.PENDING);
     } else {
