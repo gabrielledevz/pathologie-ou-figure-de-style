@@ -42,7 +42,7 @@ const AnswerInfo = (props) => {
         {question.type === "figure" && (
           <div className="exemple">Exemple : {question.example}</div>
         )}
-        <Gotowikipage keyword={question.word} />
+        <WikipediaLink request={question.word} />
       </div>
       <button className="nextButton" onClick={props.displayNext}>
         Question suivante
@@ -51,12 +51,12 @@ const AnswerInfo = (props) => {
   );
 };
 
-const Gotowikipage = (props) => {
+const WikipediaLink = (props) => {
   return (
     <button
       className="infoButton"
       onClick={() =>
-        window.open("https://fr.wikipedia.org/wiki/" + props.keyword, "_blank")
+        window.open("https://fr.wikipedia.org/wiki/" + props.request, "_blank")
       }
     >
       Chercher {props.keyword} sur Wikipedia
