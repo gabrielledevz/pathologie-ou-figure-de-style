@@ -80,9 +80,8 @@ const useGameState = () => {
   const [score, setScore] = useState(0);
   const [gameStatus, setGameStatus] = useState(GAME_STATES.BEGIN);
 
-  const answerFunction = (nature) => {
-    const answerIsCorrect = nature === GAME_QUESTIONS[questionId].type;
-    console.log("answerIsCorrect");
+  const answerFunction = (buttonType) => {
+    const answerIsCorrect = buttonType === GAME_QUESTIONS[questionId].type;
     setGameStatus(answerIsCorrect ? GAME_STATES.CORRECT : GAME_STATES.WRONG);
     setScore(answerIsCorrect ? score + 1 : score);
   };
@@ -114,15 +113,6 @@ const Figures = () => {
     gameStatus,
   } = useGameState();
 
-  const onButtonClick = (nature) => {
-    if (
-      gameStatus === GAME_STATES.BEGIN ||
-      gameStatus === GAME_STATES.PENDING
-    ) {
-      answerFunction(nature);
-    }
-  };
-
   const question = GAME_QUESTIONS[questionId];
 
   const displayNext = () => {
@@ -130,7 +120,12 @@ const Figures = () => {
   };
 
   const handleButton = (type) => () => {
-    onButtonClick(type);
+    if (
+      gameStatus === GAME_STATES.BEGIN ||
+      gameStatus === GAME_STATES.PENDING
+    ) {
+      answerFunction(type);
+    }
   };
 
   return (
