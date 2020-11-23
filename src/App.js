@@ -11,6 +11,11 @@ import { shuffleArray } from "./utils";
 const GAME_QUESTIONS = shuffleArray(GAME_DATA_TEST);
 const MAX_ID = GAME_QUESTIONS.length - 1;
 
+const QUESTION_TYPES = {
+  FIGURE: "figure",
+  PATHOLOGIE: "pathologie",
+};
+
 const GAME_STATES = {
   BEGIN: "begin",
   END: "end",
@@ -39,7 +44,7 @@ const AnswerInfo = (props) => {
         <div className="definition">
           {question.word}, {question.genre} : {question.definition}
         </div>
-        {question.type === "figure" && (
+        {question.type === QUESTION_TYPES.FIGURE && (
           <div className="exemple">Exemple : {question.example}</div>
         )}
         <WikipediaLink request={question.word} />
@@ -64,15 +69,9 @@ const WikipediaLink = (props) => {
   );
 };
 
-const FigureButton = (props) => (
-  <button className="answerButton" onClick={() => props.onClick("figure")}>
-    Figure de style
-  </button>
-);
-
-const PathologieButton = (props) => (
-  <button className="answerButton" onClick={() => props.onClick("pathologie")}>
-    Pathologie
+const AnswerButton = (props) => (
+  <button className="answerButton" onClick={props.onClick}>
+    {props.type === QUESTION_TYPES.FIGURE ? "Figure de style" : "Pathologie"}
   </button>
 );
 
@@ -83,7 +82,7 @@ const useGameState = () => {
 
   const answerFunction = (nature) => {
     const answerIsCorrect = nature === GAME_QUESTIONS[questionId].type;
-
+    console.log("answerIsCorrect");
     setGameStatus(answerIsCorrect ? GAME_STATES.CORRECT : GAME_STATES.WRONG);
     setScore(answerIsCorrect ? score + 1 : score);
   };
@@ -130,6 +129,10 @@ const Figures = () => {
     displayNextQuestion();
   };
 
+  const handleButton = (type) => () => {
+    onButtonClick(type);
+  };
+
   return (
     <div className="window">
       <div className="title">
@@ -153,8 +156,14 @@ const Figures = () => {
       </div>
       <div className="lower">
         <div className="buttonzone">
-          <FigureButton onClick={onButtonClick} />
-          <PathologieButton onClick={onButtonClick} />
+          <AnswerButton
+            onClick={handleButton(QUESTION_TYPES.FIGURE)}
+            type={QUESTION_TYPES.FIGURE}
+          />
+          <AnswerButton
+            onClick={handleButton(QUESTION_TYPES.PATHOLOGIE)}
+            type={QUESTION_TYPES.PATHOLOGIE}
+          />
         </div>
         {gameStatus !== GAME_STATES.PENDING &&
           gameStatus !== GAME_STATES.BEGIN && (
