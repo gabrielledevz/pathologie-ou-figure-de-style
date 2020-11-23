@@ -25,11 +25,8 @@ const Question = (props) => <div>{props.question}</div>;
 
 const AnswerResult = (props) => (
   <div className="answer-result">
-    {props.answerStatus === GAME_STATES.CORRECT
-      ? "C'est la bonne réponse !"
-      : props.answerStatus === GAME_STATES.WRONG
-      ? "Vous vous êtes trompé."
-      : ""}
+    {props.answerStatus === GAME_STATES.CORRECT && "C'est la bonne réponse !"}
+    {props.answerStatus === GAME_STATES.WRONG && "C'est raté !"}
   </div>
 );
 
