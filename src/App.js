@@ -52,12 +52,13 @@ const AnswerInfo = (props) => {
 };
 
 const Gotowikipage = (props) => {
-  const goToPage = (keyword) => {
-    const url = "https://fr.wikipedia.org/wiki/" + keyword;
-    window.open(url, "_blank");
-  };
   return (
-    <button className="infoButton" onClick={() => goToPage(props.keyword)}>
+    <button
+      className="infoButton"
+      onClick={() =>
+        window.open("https://fr.wikipedia.org/wiki/" + props.keyword, "_blank")
+      }
+    >
       Chercher {props.keyword} sur Wikipedia
     </button>
   );
