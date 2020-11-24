@@ -13,8 +13,6 @@ const QUESTION_TYPES = {
 };
 
 const GAME_STATES = {
-  BEGIN: "begin",
-  END: "end",
   CORRECT: "correct",
   WRONG: "wrong",
   PENDING: "pending",
@@ -43,7 +41,7 @@ const AnswerPart = (props) => {
         )}
         <WikipediaLink request={question.word} />
       </div>
-      <button onClick={props.displayNext}> Suivant</button>
+      <button onClick={props.displayNext}>Suivant</button>
     </div>
   );
 };
@@ -62,15 +60,17 @@ const WikipediaLink = (props) => {
 };
 
 const AnswerButton = (props) => (
-  <button className="answer-button" onClick={props.onClick}>
+  <button
+    className={`answer-button ${props.className}`}
+    onClick={props.onClick}
+  >
     {props.type === QUESTION_TYPES.FIGURE ? "Figure de style" : "Pathologie"}
   </button>
 );
 
 const useGameState = () => {
   const [questionId, setQuestionId] = useState(0);
-  //  const [score, setScore] = useState(0);
-  const [gameStatus, setGameStatus] = useState(GAME_STATES.BEGIN);
+  const [gameStatus, setGameStatus] = useState(null);
 
   const answerFunction = (buttonType, score, setScore) => {
     const answerIsCorrect = buttonType === GAME_QUESTIONS[questionId].type;
@@ -82,8 +82,6 @@ const useGameState = () => {
     if (questionId < MAX_ID) {
       setQuestionId(questionId + 1);
       setGameStatus(GAME_STATES.PENDING);
-    } else {
-      setGameStatus(GAME_STATES.END);
     }
   };
 
@@ -110,10 +108,7 @@ const Quizz = (props) => {
   };
 
   const handleButton = (type, score, setScore) => () => {
-    if (
-      gameStatus === GAME_STATES.BEGIN ||
-      gameStatus === GAME_STATES.PENDING
-    ) {
+    if (gameStatus === null || gameStatus === GAME_STATES.PENDING) {
       answerFunction(type, score, setScore);
     }
   };
@@ -135,14 +130,7 @@ const Quizz = (props) => {
       <div className="lower">
         <div className="button-zone">
           <AnswerButton
-            onClick={handleButton(
-              QUESTION_TYPES.FIGURE,
-              props.score,
-              props.updateScore
-            )}
-            type={QUESTION_TYPES.FIGURE}
-          />
-          <AnswerButton
+            className="pathologie-button"
             onClick={handleButton(
               QUESTION_TYPES.PATHOLOGIE,
               props.score,
@@ -150,15 +138,24 @@ const Quizz = (props) => {
             )}
             type={QUESTION_TYPES.PATHOLOGIE}
           />
+          <AnswerButton
+            className="figure-button"
+            onClick={handleButton(
+              QUESTION_TYPES.FIGURE,
+              props.score,
+              props.updateScore
+            )}
+            type={QUESTION_TYPES.FIGURE}
+          />
         </div>
-        {gameStatus !== GAME_STATES.PENDING &&
-          gameStatus !== GAME_STATES.BEGIN && (
-            <AnswerPart
-              question={question}
-              answerStatus={gameStatus}
-              displayNext={questionId < MAX_ID ? displayNext : props.endTheGame}
-            />
-          )}
+        {(gameStatus === GAME_STATES.CORRECT ||
+          gameStatus === GAME_STATES.WRONG) && (
+          <AnswerPart
+            question={question}
+            answerStatus={gameStatus}
+            displayNext={questionId < MAX_ID ? displayNext : props.endTheGame}
+          />
+        )}
       </div>
     </div>
   );
