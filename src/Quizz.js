@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import GAME_DATA from "./data/gamedata";
 import GAME_DATA_TEST from "./data/gamedata-test";
 import { shuffleArray } from "./utils";
+import ScoreContext from "./ScoreContext";
 
 // Replace GAME_DATA_TEST with GAME_DATA for actual questions
-const GAME_QUESTIONS = shuffleArray(GAME_DATA);
+const GAME_QUESTIONS = shuffleArray(GAME_DATA_TEST);
 const MAX_ID = GAME_QUESTIONS.length - 1;
 
 const QUESTION_TYPES = {
-  FIGURE: "figure",
-  PATHOLOGIE: "pathologie",
+  PATHOLOGIE: 0,
+  FIGURE: 1,
 };
-
-// remettre une seule classe pour les boutons de réponse
 
 const GAME_STATES = {
   CORRECT: "correct",
@@ -31,6 +30,7 @@ const AnswerResult = (props) => (
 
 const AnswerPart = (props) => {
   const question = props.question;
+
   return (
     <div className="answer-information">
       <AnswerResult answerStatus={props.answerStatus} />
@@ -53,34 +53,49 @@ const AnswerPart = (props) => {
   );
 };
 
-const WikipediaLink = (props) => {
+const WikipediaLink = (props) => (
+  <p>
+    <a
+      href={`https://fr.wikipedia.org/wiki/${props.request}`}
+      className="wikipedia-link"
+      target="_blank"
+      rel="noreferrer"
+    >
+      Chercher {props.keyword} sur Wikipedia
+    </a>
+  </p>
+);
+
+const AnswerButton = (props) => {
+  const [hasBeenSelected, setHasBeenSelected] = useState(false);
+
+  const handleClick = () => {
+    props.onClick();
+    setHasBeenSelected(true);
+  };
+
   return (
-    <p>
-      <a
-        href={`https://fr.wikipedia.org/wiki/${props.request}`}
-        className="wikipedia-link"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Chercher {props.keyword} sur Wikipedia
-      </a>
-    </p>
+    <button
+      disabled={props.disabled}
+      className={`answer-button ${
+        props.disabled && hasBeenSelected ? "button-selected" : ""
+      }`}
+      onClick={handleClick}
+    >
+      {props.type === QUESTION_TYPES.FIGURE ? "Figure de style" : "Pathologie"}
+    </button>
   );
 };
 
-const AnswerButton = (props) => (
-  <button
-    disabled={props.disabled}
-    className={`answer-button ${props.className}`}
-    onClick={props.onClick}
-  >
-    {props.type === QUESTION_TYPES.FIGURE ? "Figure de style" : "Pathologie"}
-  </button>
-);
-
 const useGameState = () => {
+  const { score, setScore } = useContext(ScoreContext);
+
   const [questionId, setQuestionId] = useState(0);
   const [gameStatus, setGameStatus] = useState(null);
+
+  // Introduits parce que seule méthode trouvée pour reset l'état du bouton après le clic sur le bouton Suivant
+  // Mais lourd, et cette solution d'initialiser la clé de figure à 1000 euh...
+  const [buttonKeys, setButtonKeys] = useState([0, 1000]);
 
   const answerFunction = (buttonType, score, setScore) => {
     const answerIsCorrect = buttonType === GAME_QUESTIONS[questionId].type;
@@ -92,89 +107,77 @@ const useGameState = () => {
     if (questionId < MAX_ID) {
       setQuestionId(questionId + 1);
       setGameStatus(GAME_STATES.PENDING);
+      setButtonKeys(buttonKeys.map((k) => k + 1));
     }
   };
 
   return {
+    score,
+    setScore,
     questionId,
     answerFunction,
     displayNextQuestion,
     gameStatus,
+    buttonKeys,
   };
 };
 
 const Quizz = (props) => {
   const {
+    score,
+    setScore,
     questionId,
     answerFunction,
     displayNextQuestion,
     gameStatus,
+    buttonKeys,
   } = useGameState();
 
   const question = GAME_QUESTIONS[questionId];
 
-  const displayNext = () => {
-    displayNextQuestion();
-  };
-
-  const handleButton = (type, score, setScore) => () => {
+  const handleButton = (type) => () => {
     if (gameStatus === null || gameStatus === GAME_STATES.PENDING) {
       answerFunction(type, score, setScore);
     }
   };
 
-  console.log("game status : " + gameStatus);
-
-  // Ne marche pas pour la gestion du style : en mettant le même style aux deux boutons alors les deux seront bleus après click sur l'un des deux
-  // il faudrait un style pour le bouton cliqué, même si ça n'empêche pas de désactiver les boutons...
-  // Peut-être pas très propre de faire comme ça, cf au-dessus
-
-  const disableButtons =
+  const answerSubmitted =
     gameStatus === GAME_STATES.CORRECT || gameStatus === GAME_STATES.WRONG;
-
-  console.log("buttons disabled ? " + disableButtons);
 
   return (
     <div className="whole">
       <div className="middle">
-        <div className="secret-zone">blabla</div>
+        <div className="secret-zone"></div>
         <div className="question">
           <Question question={question.word} />
         </div>
         <div className="score">
           <p>Score</p>
-          <div className="score-number">{props.score}</div>
+          <div className="score-number">{score}</div>
         </div>
       </div>
       <div className="lower">
         <div className="button-zone">
           <AnswerButton
-            className="pathologie-button"
-            onClick={handleButton(
-              QUESTION_TYPES.PATHOLOGIE,
-              props.score,
-              props.updateScore
-            )}
-            disabled={disableButtons}
+            onClick={handleButton(QUESTION_TYPES.PATHOLOGIE)}
+            disabled={answerSubmitted}
             type={QUESTION_TYPES.PATHOLOGIE}
+            key={buttonKeys[QUESTION_TYPES.PATHOLOGIE]}
           />
           <AnswerButton
-            className="figure-button"
-            onClick={handleButton(
-              QUESTION_TYPES.FIGURE,
-              props.score,
-              props.updateScore
-            )}
-            disabled={disableButtons}
+            onClick={handleButton(QUESTION_TYPES.FIGURE)}
+            disabled={answerSubmitted}
             type={QUESTION_TYPES.FIGURE}
+            key={buttonKeys[QUESTION_TYPES.FIGURE]}
           />
         </div>
-        {(gameStatus === GAME_STATES.CORRECT ||
-          gameStatus === GAME_STATES.WRONG) && (
+        {answerSubmitted && (
           <AnswerPart
             question={question}
             answerStatus={gameStatus}
-            displayNext={questionId < MAX_ID ? displayNext : props.endTheGame}
+            displayNext={
+              questionId < MAX_ID ? displayNextQuestion : props.endTheGame
+            }
           />
         )}
       </div>
