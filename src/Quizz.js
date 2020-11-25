@@ -4,13 +4,15 @@ import GAME_DATA_TEST from "./data/gamedata-test";
 import { shuffleArray } from "./utils";
 
 // Replace GAME_DATA_TEST with GAME_DATA for actual questions
-const GAME_QUESTIONS = shuffleArray(GAME_DATA_TEST);
+const GAME_QUESTIONS = shuffleArray(GAME_DATA);
 const MAX_ID = GAME_QUESTIONS.length - 1;
 
 const QUESTION_TYPES = {
   FIGURE: "figure",
   PATHOLOGIE: "pathologie",
 };
+
+// remettre une seule classe pour les boutons de réponse
 
 const GAME_STATES = {
   CORRECT: "correct",
@@ -34,33 +36,41 @@ const AnswerPart = (props) => {
       <AnswerResult answerStatus={props.answerStatus} />
       <div className="info-zone">
         <div className="definition">
-          {question.word}, {question.genre} : {question.definition}
+          <em>
+            {question.word}, {question.genre} :
+          </em>{" "}
+          {question.definition}
         </div>
         {question.type === QUESTION_TYPES.FIGURE && (
-          <div className="exemple">Exemple : {question.example}</div>
+          <p className="exemple">Exemple : {question.example}</p>
         )}
         <WikipediaLink request={question.word} />
       </div>
-      <button onClick={props.displayNext}>Suivant</button>
+      <button className="next-button" onClick={props.displayNext}>
+        Suivant
+      </button>
     </div>
   );
 };
 
 const WikipediaLink = (props) => {
   return (
-    <button
-      className="info-button"
-      onClick={() =>
-        window.open("https://fr.wikipedia.org/wiki/" + props.request, "_blank")
-      }
-    >
-      Chercher {props.keyword} sur Wikipedia
-    </button>
+    <p>
+      <a
+        href={`https://fr.wikipedia.org/wiki/${props.request}`}
+        className="wikipedia-link"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Chercher {props.keyword} sur Wikipedia
+      </a>
+    </p>
   );
 };
 
 const AnswerButton = (props) => (
   <button
+    disabled={props.disabled}
     className={`answer-button ${props.className}`}
     onClick={props.onClick}
   >
@@ -115,6 +125,15 @@ const Quizz = (props) => {
 
   console.log("game status : " + gameStatus);
 
+  // Ne marche pas pour la gestion du style : en mettant le même style aux deux boutons alors les deux seront bleus après click sur l'un des deux
+  // il faudrait un style pour le bouton cliqué, même si ça n'empêche pas de désactiver les boutons...
+  // Peut-être pas très propre de faire comme ça, cf au-dessus
+
+  const disableButtons =
+    gameStatus === GAME_STATES.CORRECT || gameStatus === GAME_STATES.WRONG;
+
+  console.log("buttons disabled ? " + disableButtons);
+
   return (
     <div className="whole">
       <div className="middle">
@@ -136,6 +155,7 @@ const Quizz = (props) => {
               props.score,
               props.updateScore
             )}
+            disabled={disableButtons}
             type={QUESTION_TYPES.PATHOLOGIE}
           />
           <AnswerButton
@@ -145,6 +165,7 @@ const Quizz = (props) => {
               props.score,
               props.updateScore
             )}
+            disabled={disableButtons}
             type={QUESTION_TYPES.FIGURE}
           />
         </div>
