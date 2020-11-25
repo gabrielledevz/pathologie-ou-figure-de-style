@@ -9,8 +9,8 @@ const GAME_QUESTIONS = shuffleArray(GAME_DATA_TEST);
 const MAX_ID = GAME_QUESTIONS.length - 1;
 
 const QUESTION_TYPES = {
-  PATHOLOGIE: 0,
-  FIGURE: 1,
+  PATHOLOGIE: "pathologie",
+  FIGURE: "figure",
 };
 
 const GAME_STATES = {
@@ -162,13 +162,13 @@ const Quizz = (props) => {
             onClick={handleButton(QUESTION_TYPES.PATHOLOGIE)}
             disabled={answerSubmitted}
             type={QUESTION_TYPES.PATHOLOGIE}
-            key={buttonKeys[QUESTION_TYPES.PATHOLOGIE]}
+            key={buttonKeys[0]}
           />
           <AnswerButton
             onClick={handleButton(QUESTION_TYPES.FIGURE)}
             disabled={answerSubmitted}
             type={QUESTION_TYPES.FIGURE}
-            key={buttonKeys[QUESTION_TYPES.FIGURE]}
+            key={buttonKeys[1]}
           />
         </div>
         {answerSubmitted && (
