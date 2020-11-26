@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import ScoreContext from "./ScoreContext";
-// Enlever le nombre de questions en dur !
-
-// creer fichier json qui importe les donnees
+import { NB_QUESTIONS } from "./Questions.js";
 
 const PlayAgain = (props) => {
   const { score, setScore } = useContext(ScoreContext);
@@ -18,7 +16,10 @@ const PlayAgain = (props) => {
         <div className="message">Merci d'avoir joué !</div>
         <div className="final-score">
           <p>Votre score</p>
-          <div className="final-score-number"> {score} / X</div>
+          <div className="final-score-number">
+            {" "}
+            {score} / {NB_QUESTIONS}
+          </div>
         </div>
         <button onClick={startAgain}>Recommencer</button>
       </div>

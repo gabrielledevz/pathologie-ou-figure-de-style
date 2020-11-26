@@ -1,12 +1,9 @@
 import React, { useState, useContext } from "react";
-import GAME_DATA from "./data/gamedata";
-import GAME_DATA_TEST from "./data/gamedata-test";
-import { shuffleArray } from "./utils";
+//import { shuffleArray } from "./utils";
 import ScoreContext from "./ScoreContext";
+import { GAME_QUESTIONS, NB_QUESTIONS } from "./Questions.js";
 
-// Replace GAME_DATA_TEST with GAME_DATA for actual questions
-const GAME_QUESTIONS = shuffleArray(GAME_DATA_TEST);
-const MAX_ID = GAME_QUESTIONS.length - 1;
+const MAX_ID = NB_QUESTIONS - 1;
 
 const QUESTION_TYPES = {
   PATHOLOGIE: "pathologie",
@@ -36,6 +33,8 @@ const AnswerInfo = (props) => (
     <WikipediaLink request={props.word} />
   </div>
 );
+
+// Ajouter animation pour apparition de la réponse ? Plus difficile
 
 const AnswerPart = (props) => {
   return (
@@ -68,7 +67,7 @@ const AnswerButton = (props) => {
   return (
     <button
       disabled={deactivateButton}
-      className={`answer-button ${deactivateButton ? "disabled" : ""} ${
+      className={`answer-button ${
         deactivateButton && props.typeClicked === props.buttonType
           ? "button-selected"
           : ""
@@ -96,9 +95,7 @@ const useGameState = () => {
   };
 
   const displayNextQuestion = () => {
-    if (questionId < MAX_ID) {
-      setQuestionId(questionId + 1);
-    }
+    setQuestionId(questionId + 1);
   };
 
   return {
