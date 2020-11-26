@@ -13,15 +13,20 @@ const PlayAgain = (props) => {
   return (
     <div className="game-done">
       <div className="game-done-panel">
-        <div className="message">Merci d'avoir joué !</div>
+        <div className="message-fin">Merci d'avoir joué !</div>
         <div className="final-score">
           <p>Votre score</p>
           <div className="final-score-number">
             {" "}
-            {score} / {NB_QUESTIONS}
+            {score}/{NB_QUESTIONS}
           </div>
         </div>
-        <button onClick={startAgain}>Recommencer</button>
+        <button
+          className="restart-button hvr-underline-from-left"
+          onClick={startAgain}
+        >
+          Rejouer
+        </button>
       </div>
     </div>
   );

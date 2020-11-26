@@ -6,6 +6,8 @@
   --color-bronze: #dc9e82;
   --color-dark-pink: #b65455;
   --color-dark-bronze: #d28460;
+  --color-very-dark-pink: #8f3d3f;
+  --color-very-dark-bronze: #ce7850;
 }
 
 .App {
@@ -233,9 +235,10 @@ em {
   border: none;
   width: 150px;
   height: 40px;
-  font-size: 18px;
+  font-size: 15px;
   color: var(--color-yellow);
   cursor: pointer;
+  outline: none;
 }
 
 .next-button:hover {
@@ -251,31 +254,81 @@ em {
 }
 
 .game-done-panel {
-  height: 50%;
+  height: 60%;
   padding-top: 30px;
-  width: 70%;
+  width: 60%;
   padding-bottom: 30px;
   margin: auto;
-  background-color: #112233;
+  background-color: var(--color-blue);
   font-size: 20px;
+  border: solid var(--color-bronze) 10px;
+}
+
+.message-fin {
+  color: var(--color-pink);
 }
 
 .final-score {
-  color: #ffff2e;
+  color: var(--color-bronze);
   height: 60%;
 }
 
-.final-score-number {
-  font-size: 30px;
+.game-done-panel p {
+  margin-bottom: 5px;
+  margin-top: 30px;
+  font-size: 16px;
 }
 
-.game-done-panel button {
+.final-score-number {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.restart-button {
   margin-bottom: 15px;
-  background-color: #c16e70;
+  background-color: var(--color-pink);
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
   box-shadow: none;
   border: none;
+  height: 45px;
+  font-size: 16px;
+  color: var(--color-blue);
+  font-family: "Sintony";
+  font-weight: bold;
+  outline: none;
+}
+
+/* Underline From Left */
+.hvr-underline-from-left {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-from-left:before {
+  background: var(--color-very-dark-pink);
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 8px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-underline-from-left:hover:before,
+.hvr-underline-from-left:focus:before,
+.hvr-underline-from-left:active:before {
+  right: 0;
 }
