@@ -1,0 +1,7 @@
+[
+	{"word": "patho1", "genre": "nom féminin", "type": "pathologie", "definition": "blablabla patho1"},
+	{"word": "patho2", "genre": "nom féminin", "type": "pathologie", "definition": "blablabla patho2"},
+	{"word": "patho3", "genre": "nom masculin", "type": "pathologie", "definition": "blablabla patho3"},
+	{"word": "figure1", "genre": "nom féminin", "type": "figure", "definition": "blablabla figure1", "exemple": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero risus, vestibulum vitae elementum et. [Bblabla, blibli]"},
+	{"word": "figure2", "genre": "nom masculin", "type": "figure", "definition": "blablabla figure2", "exemple": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero risus, vestibulum vitae elementum et. [Bblabla, blibli]"}
+]
