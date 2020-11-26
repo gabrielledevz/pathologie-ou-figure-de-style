@@ -125,8 +125,12 @@ body {
   margin: auto;
 }
 
-.facebook-button {
+.social-media-button {
   outline: none;
+  transition-property: background-color, color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+  background: transparent;
 }
 
 .question {

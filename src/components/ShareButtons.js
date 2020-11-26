@@ -1,22 +1,23 @@
 import { FacebookShareButton, TwitterShareButton } from "react-share";
-import facebookIcon from "../assets/facebook.svg";
-import twitterIcon from "../assets/twitter.svg";
+import FacebookIcon from "../assets/FacebookIcon";
+import TwitterIcon from "../assets/TwitterIcon";
+
 const ShareButtons = ({ title, url, twitterHandle, tags }) => {
   return (
     <div className="share-buttons">
       <FacebookShareButton
-        className="facebook-button"
+        className="social-media-button"
         quote="Show me the Google!"
         url={"https://www.google.com"}
       >
-        <img src={facebookIcon} width="40px" alt="facebook-icon" />
+        <FacebookIcon />
       </FacebookShareButton>
       <TwitterShareButton
-        className="twitter-button"
+        className="social-media-button"
         quote="Show me the Google!"
         url={"https://www.google.com"}
       >
-        <img src={twitterIcon} width="40px" alt="twitter-icon" />
+        <TwitterIcon />
       </TwitterShareButton>
     </div>
   );
