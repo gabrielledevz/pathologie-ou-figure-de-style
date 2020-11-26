@@ -87,12 +87,7 @@ const useGameState = () => {
   const [questionId, setQuestionId] = useState(0);
   const [answerIsCorrect, setAnswerIsCorrect] = useState(null);
 
-  const answerFunction = (
-    buttonType,
-    score,
-    setScore,
-    setTypeOfButtonClicked
-  ) => {
+  const answerFunction = (buttonType, setTypeOfButtonClicked) => {
     const correctlyAnswered = buttonType === GAME_QUESTIONS[questionId].type;
     setAnswerIsCorrect(correctlyAnswered);
     setScore(correctlyAnswered ? score + 1 : score);
@@ -118,7 +113,6 @@ const useGameState = () => {
 const Quizz = (props) => {
   const {
     score,
-    setScore,
     questionId,
     answerFunction,
     displayNextQuestion,
@@ -131,7 +125,7 @@ const Quizz = (props) => {
 
   const handleButton = (type) => () => {
     if (typeOfButtonClicked === "none") {
-      answerFunction(type, score, setScore, setTypeOfButtonClicked);
+      answerFunction(type, setTypeOfButtonClicked);
     }
   };
 
