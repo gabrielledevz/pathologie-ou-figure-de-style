@@ -27,7 +27,7 @@ const AnswerInfo = (props) => (
       <p className="exemple">Exemple : {props.example}</p>
     )}
 
-    <WikipediaLink request={props.word} />
+    <WikipediaLink request={props.question.word} />
   </div>
 );
 
