@@ -101,6 +101,8 @@ body {
   display: flex;
   align-items: center;
   margin: auto;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .lower {
