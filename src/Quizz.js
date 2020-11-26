@@ -102,7 +102,6 @@ const useGameState = () => {
 
   return {
     score,
-    setScore,
     questionId,
     answerFunction,
     displayNextQuestion,
