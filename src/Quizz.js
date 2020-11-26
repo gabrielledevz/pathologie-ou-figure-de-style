@@ -62,7 +62,6 @@ const WikipediaLink = (props) => (
   </p>
 );
 
-// État hover actif etc à ajouter sur la CSS
 // + animations sur les boutons
 const AnswerButton = (props) => {
   const deactivateButton = props.typeClicked !== "none";
@@ -70,13 +69,15 @@ const AnswerButton = (props) => {
     <button
       disabled={deactivateButton}
       className={`answer-button ${deactivateButton ? "disabled" : ""} ${
-        deactivateButton && props.typeClicked === props.type
+        deactivateButton && props.typeClicked === props.buttonType
           ? "button-selected"
           : ""
       }`}
       onClick={props.onClick}
     >
-      {props.type === QUESTION_TYPES.FIGURE ? "Figure de style" : "Pathologie"}
+      {props.buttonType === QUESTION_TYPES.FIGURE
+        ? "Figure de style"
+        : "Pathologie"}
     </button>
   );
 };
@@ -149,12 +150,12 @@ const Quizz = (props) => {
         <div className="button-zone">
           <AnswerButton
             onClick={handleButton(QUESTION_TYPES.PATHOLOGIE)}
-            type={QUESTION_TYPES.PATHOLOGIE}
+            buttonType={QUESTION_TYPES.PATHOLOGIE}
             typeClicked={typeOfButtonClicked}
           />
           <AnswerButton
             onClick={handleButton(QUESTION_TYPES.FIGURE)}
-            type={QUESTION_TYPES.FIGURE}
+            buttonType={QUESTION_TYPES.FIGURE}
             typeClicked={typeOfButtonClicked}
           />
         </div>
