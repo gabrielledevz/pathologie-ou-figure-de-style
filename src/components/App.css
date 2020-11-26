@@ -65,6 +65,7 @@ body {
   align-items: center;
   height: 100%;
   margin: auto;
+  padding-bottom: 10px;
 }
 
 .game {
@@ -81,7 +82,6 @@ body {
   text-align: center;
   border: 3px solid var(--color-blue);
   font-size: 18px;
-  height: 40px;
   margin-top: 35px;
   color: var(--color-blue);
   text-transform: uppercase;
