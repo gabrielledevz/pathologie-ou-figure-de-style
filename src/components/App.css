@@ -136,17 +136,23 @@ body {
   width: 25%;
   text-transform: uppercase;
   text-align: center;
-  font-size: 40px;
 }
 
 .score p {
   font-size: 20px;
 }
 
+.score-number {
+  font-size: 40px;
+}
+
 button {
   transition-property: background-color, color;
   transition-duration: 200ms;
   transition-timing-function: ease-in-out;
+}
+
+button:enabled {
   cursor: pointer;
 }
 
@@ -187,7 +193,7 @@ button {
   border-style: solid;
   border-color: var(--color-bronze);
   padding-left: 55px;
-  padding-right: 25px;
+  padding-right: 35px;
   padding-bottom: 20px;
   padding-top: 20px;
   position: relative;
@@ -217,17 +223,34 @@ button {
 .info-zone {
   padding-top: 20px;
   text-align: left;
-  font-size: 14px;
+  font-size: 13px;
 }
 
-em {
+.definition {
+  padding-bottom: 10px;
+}
+
+.definition em {
   font-weight: bold;
   font-style: normal;
+}
+
+.example {
+  border-left: 4px solid var(--color-dark-bronze);
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.example em {
+  font-style: italic;
 }
 
 .wikipedia-link {
   font-weight: bold;
   color: var(--color-dark-blue);
+  position: relative;
+  top: 30px;
 }
 
 .next-button {
