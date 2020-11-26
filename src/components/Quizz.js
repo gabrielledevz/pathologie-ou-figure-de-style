@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useGameState } from "../hooks/GameState";
 import Answer from "./Answer";
 import AnswerButton from "./AnswerButton";
+import ShareButtons from "./ShareButtons";
 
 const QUESTION_TYPES = {
   PATHOLOGIE: "pathologie",
@@ -40,7 +41,9 @@ const Quizz = (props) => {
   return (
     <div className="whole">
       <div className="middle">
-        <div className="secret-zone"></div>
+        <div className="secret-zone">
+          <ShareButtons />
+        </div>
         <div className="question">
           <Question question={question.word} />
         </div>
