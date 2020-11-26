@@ -1,13 +1,10 @@
-import React, { useState, useContext } from "react";
-//import { shuffleArray } from "./utils";
-import ScoreContext from "../ScoreContext";
-import { GAME_QUESTIONS, NB_QUESTIONS } from "./Questions.js";
-
-const MAX_ID = NB_QUESTIONS - 1;
+import React, { useState } from "react";
+import { useGameState } from "../hooks/GameState";
 
 const QUESTION_TYPES = {
   PATHOLOGIE: "pathologie",
   FIGURE: "figure",
+  NONE: "none",
 };
 
 const Question = (props) => <div>{props.question}</div>;
@@ -61,9 +58,8 @@ const WikipediaLink = (props) => (
   </p>
 );
 
-// + animations sur les boutons
 const AnswerButton = (props) => {
-  const deactivateButton = props.typeClicked !== "none";
+  const deactivateButton = props.typeClicked !== QUESTION_TYPES.NONE;
   return (
     <button
       disabled={deactivateButton}
@@ -81,54 +77,30 @@ const AnswerButton = (props) => {
   );
 };
 
-const useGameState = () => {
-  const { score, setScore } = useContext(ScoreContext);
-
-  const [questionId, setQuestionId] = useState(0);
-  const [answerIsCorrect, setAnswerIsCorrect] = useState(null);
-
-  const answerFunction = (buttonType, setTypeOfButtonClicked) => {
-    const correctlyAnswered = buttonType === GAME_QUESTIONS[questionId].type;
-    setAnswerIsCorrect(correctlyAnswered);
-    setScore(correctlyAnswered ? score + 1 : score);
-    setTypeOfButtonClicked(buttonType);
-  };
-
-  const displayNextQuestion = () => {
-    setQuestionId(questionId + 1);
-  };
-
-  return {
-    score,
-    questionId,
-    answerFunction,
-    displayNextQuestion,
-    answerIsCorrect,
-  };
-};
-
 const Quizz = (props) => {
   const {
     score,
-    questionId,
     answerFunction,
     displayNextQuestion,
     answerIsCorrect,
+    question,
   } = useGameState();
 
-  const [typeOfButtonClicked, setTypeOfButtonClicked] = useState("none");
-
-  const question = GAME_QUESTIONS[questionId];
+  const [typeOfButtonClicked, setTypeOfButtonClicked] = useState(
+    QUESTION_TYPES.NONE
+  );
 
   const handleButton = (type) => () => {
-    if (typeOfButtonClicked === "none") {
+    if (typeOfButtonClicked === QUESTION_TYPES.NONE) {
       answerFunction(type, setTypeOfButtonClicked);
     }
   };
 
   const displayNext = () => {
-    displayNextQuestion();
-    setTypeOfButtonClicked("none");
+    setTypeOfButtonClicked(QUESTION_TYPES.NONE);
+    if (!displayNextQuestion()) {
+      props.endTheGame();
+    }
   };
 
   return (
@@ -156,11 +128,11 @@ const Quizz = (props) => {
             typeClicked={typeOfButtonClicked}
           />
         </div>
-        {typeOfButtonClicked !== "none" && (
+        {typeOfButtonClicked !== QUESTION_TYPES.NONE && (
           <AnswerPart
             question={question}
             isCorrect={answerIsCorrect}
-            displayNext={questionId < MAX_ID ? displayNext : props.endTheGame}
+            displayNext={displayNext}
           />
         )}
       </div>
