@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import ScoreContext from "../context/ScoreContext";
-import { NB_QUESTIONS } from "./Questions.js";
+import { NB_QUESTIONS } from "../repositories/Questions.js";
 
 const PlayAgain = (props) => {
   const { score, setScore } = useContext(ScoreContext);
