@@ -13,39 +13,35 @@ const QUESTION_TYPES = {
   FIGURE: "figure",
 };
 
-const GAME_STATES = {
-  CORRECT: "correct",
-  WRONG: "wrong",
-  PENDING: "pending",
-};
-
 const Question = (props) => <div>{props.question}</div>;
 
 const AnswerResult = (props) => (
   <div className="answer-result">
-    {props.answerStatus === GAME_STATES.CORRECT && "C'est la bonne réponse !"}
-    {props.answerStatus === GAME_STATES.WRONG && "C'est raté !"}
+    {props.isCorrect ? "C'est la bonne réponse !" : "C'est raté !"}
+  </div>
+);
+
+const AnswerInfo = (props) => (
+  <div className="info-zone">
+    <div className="definition">
+      <em>
+        {props.question.word}, {props.question.genre} :
+      </em>{" "}
+      {props.question.definition}
+    </div>
+    {props.question.type === QUESTION_TYPES.FIGURE && (
+      <p className="exemple">Exemple : {props.example}</p>
+    )}
+
+    <WikipediaLink request={props.word} />
   </div>
 );
 
 const AnswerPart = (props) => {
-  const question = props.question;
-
   return (
     <div className="answer-information">
-      <AnswerResult answerStatus={props.answerStatus} />
-      <div className="info-zone">
-        <div className="definition">
-          <em>
-            {question.word}, {question.genre} :
-          </em>{" "}
-          {question.definition}
-        </div>
-        {question.type === QUESTION_TYPES.FIGURE && (
-          <p className="exemple">Exemple : {question.example}</p>
-        )}
-        <WikipediaLink request={question.word} />
-      </div>
+      <AnswerResult isCorrect={props.isCorrect} />
+      <AnswerInfo question={props.question} />
       <button className="next-button" onClick={props.displayNext}>
         Suivant
       </button>
@@ -89,7 +85,7 @@ const useGameState = () => {
   const { score, setScore } = useContext(ScoreContext);
 
   const [questionId, setQuestionId] = useState(0);
-  const [gameStatus, setGameStatus] = useState(null);
+  const [answerIsCorrect, setAnswerIsCorrect] = useState(null);
 
   const answerFunction = (
     buttonType,
@@ -97,16 +93,15 @@ const useGameState = () => {
     setScore,
     setTypeOfButtonClicked
   ) => {
-    const answerIsCorrect = buttonType === GAME_QUESTIONS[questionId].type;
-    setGameStatus(answerIsCorrect ? GAME_STATES.CORRECT : GAME_STATES.WRONG);
-    setScore(answerIsCorrect ? score + 1 : score);
+    const correctlyAnswered = buttonType === GAME_QUESTIONS[questionId].type;
+    setAnswerIsCorrect(correctlyAnswered);
+    setScore(correctlyAnswered ? score + 1 : score);
     setTypeOfButtonClicked(buttonType);
   };
 
   const displayNextQuestion = () => {
     if (questionId < MAX_ID) {
       setQuestionId(questionId + 1);
-      setGameStatus(GAME_STATES.PENDING);
     }
   };
 
@@ -116,7 +111,7 @@ const useGameState = () => {
     questionId,
     answerFunction,
     displayNextQuestion,
-    gameStatus,
+    answerIsCorrect,
   };
 };
 
@@ -127,7 +122,7 @@ const Quizz = (props) => {
     questionId,
     answerFunction,
     displayNextQuestion,
-    gameStatus,
+    answerIsCorrect,
   } = useGameState();
 
   const [typeOfButtonClicked, setTypeOfButtonClicked] = useState("none");
@@ -135,7 +130,7 @@ const Quizz = (props) => {
   const question = GAME_QUESTIONS[questionId];
 
   const handleButton = (type) => () => {
-    if (gameStatus === null || gameStatus === GAME_STATES.PENDING) {
+    if (typeOfButtonClicked === "none") {
       answerFunction(type, score, setScore, setTypeOfButtonClicked);
     }
   };
@@ -173,7 +168,7 @@ const Quizz = (props) => {
         {typeOfButtonClicked !== "none" && (
           <AnswerPart
             question={question}
-            answerStatus={gameStatus}
+            isCorrect={answerIsCorrect}
             displayNext={questionId < MAX_ID ? displayNext : props.endTheGame}
           />
         )}
