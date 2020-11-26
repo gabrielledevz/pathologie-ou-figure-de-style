@@ -13,24 +13,24 @@ const AnswerDetails = (props) => (
       {props.question.definition}
     </div>
     {props.question.type === QUESTION_TYPES.FIGURE && (
-      <p className="exemple">Exemple : {props.question.example}</p>
+      <p className="example">
+        Exemple : {props.question.example} — {props.question.author},{" "}
+        <em>{props.question.book}</em>
+      </p>
     )}
-
     <WikipediaLink request={props.question.word} />
   </div>
 );
 
 const WikipediaLink = (props) => (
-  <p>
-    <a
-      href={`https://fr.wikipedia.org/wiki/${props.request}`}
-      className="wikipedia-link"
-      target="_blank"
-      rel="noreferrer"
-    >
-      Aller sur l'article Wikipédia
-    </a>
-  </p>
+  <a
+    href={`https://fr.wikipedia.org/wiki/${props.request}`}
+    className="wikipedia-link"
+    target="_blank"
+    rel="noreferrer"
+  >
+    Aller sur l'article Wikipédia
+  </a>
 );
 
 // Ajouter animation pour apparition de la réponse ? Plus difficile
