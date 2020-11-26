@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import ScoreContext from "../ScoreContext";
+import ScoreContext from "../context/ScoreContext";
 import { GAME_QUESTIONS, NB_QUESTIONS } from "../components/Questions.js";
 
 export const useGameState = () => {

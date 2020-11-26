@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Quizz from "./Quizz";
 import PlayAgain from "./PlayAgain";
-import ScoreContext from "../ScoreContext";
+import ScoreContext from "../context/ScoreContext";
 
 const Game = () => {
   const Titre = () => <div>Pathologie ou figure de style ?</div>;

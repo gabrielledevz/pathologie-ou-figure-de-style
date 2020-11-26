@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import ScoreContext from "../ScoreContext";
+import ScoreContext from "../context/ScoreContext";
 import { NB_QUESTIONS } from "./Questions.js";
 
 const PlayAgain = (props) => {
