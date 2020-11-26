@@ -156,9 +156,9 @@ button {
 .answer-button {
   height: 100%;
   width: 200px;
-  margin-left: 10px;
-  margin-right: 10px;
-  border-radius: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 13px;
   font-family: "Sintony";
   border: none;
   font-size: 15px;
@@ -168,12 +168,8 @@ button {
   color: var(--color-blue);
 }
 
-.answer-button:hover {
+.answer-button:hover:enabled {
   background-color: var(--color-dark-pink);
-}
-
-.disabled {
-  pointer-events: none;
 }
 
 .button-selected {
@@ -182,9 +178,9 @@ button {
 }
 
 .answer-information {
-  width: 100%;
+  width: 97%;
   text-align: center;
-  margin-top: 25px;
+  margin-top: 55px;
   margin-bottom: 15px;
   border-style: solid;
   border-color: var(--color-bronze);
