@@ -130,10 +130,6 @@ body {
 }
 
 .social-media-icon {
-  transition-property: fill;
-  transition-duration: 200ms;
-  transition-timing-function: ease-in-out;
-  background: transparent;
   width: 40px;
   height: 40px;
   overflow: visible;
@@ -142,7 +138,7 @@ body {
 .social-media-background {
   fill: var(--color-yellow);
   transition-property: fill;
-  transition-duration: 200ms;
+  transition-duration: 400ms;
   transition-timing-function: ease-in-out;
   background: transparent;
 }
@@ -150,7 +146,7 @@ body {
 .social-media-main {
   fill: var(--color-dark-bronze);
   transition-property: fill;
-  transition-duration: 200ms;
+  transition-duration: 400ms;
   transition-timing-function: ease-in-out;
   background: transparent;
 }
