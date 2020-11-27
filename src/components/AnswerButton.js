@@ -1,5 +1,3 @@
-import React from "react";
-
 const QUESTION_TYPES = {
   PATHOLOGIE: "pathologie",
   FIGURE: "figure",

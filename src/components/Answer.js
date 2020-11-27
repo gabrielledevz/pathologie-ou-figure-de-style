@@ -15,9 +15,9 @@ const AnswerDetails = (props) => (
   </div>
 );
 
-const WikipediaLink = (props) => (
+const WikipediaLink = (word) => (
   <a
-    href={`https://fr.wikipedia.org/wiki/${props.request}`}
+    href={`https://fr.wikipedia.org/wiki/${word}`}
     className="wikipedia-link"
     target="_blank"
     rel="noreferrer"

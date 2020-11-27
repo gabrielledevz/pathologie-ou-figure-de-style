@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./app.css";
 import Quizz from "./Quizz";
 import PlayAgain from "./PlayAgain";
-import ScoreContext from "../context/ScoreContext";
+import ScoreContext from "../context/scoreContext";
 
 const Game = () => {
   const [gameIsOn, setGameIsOn] = useState(true);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useGameState } from "../hooks/GameState";
+import { useGameState } from "../hooks/gameState";
 import Answer from "./Answer";
 import AnswerButton from "./AnswerButton";
 import ShareButtons from "./ShareButtons";
@@ -11,6 +11,14 @@ const QUESTION_TYPES = {
 };
 
 const Question = (props) => <div>{props.question}</div>;
+
+// Trouver un moyen de faire apparaître le composant réponse avec tuto Pierre
+// Créer des tests
+// Redécouper le code
+// Corriger la css car bug quand redimension
+// Renommer les fichiers non composants en camelCase
+// Ajouter des raccourcis clavier pour répondre (1-2-Enter par exemple)
+// Changer favicon et titre
 
 const Quizz = (props) => {
   const {
