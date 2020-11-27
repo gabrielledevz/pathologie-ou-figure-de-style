@@ -4,17 +4,15 @@ const QUESTION_TYPES = {
   NONE: "none",
 };
 
-const AnswerButton = (props) => (
+const AnswerButton = ({ typeClicked, buttonType, onClick }) => (
   <button
-    disabled={props.typeClicked !== QUESTION_TYPES.NONE}
+    disabled={typeClicked !== QUESTION_TYPES.NONE}
     className={`answer-button ${
-      props.typeClicked === props.buttonType ? "button-selected" : ""
+      typeClicked === buttonType ? "button-selected" : ""
     }`}
-    onClick={props.onClick}
+    onClick={onClick}
   >
-    {props.buttonType === QUESTION_TYPES.FIGURE
-      ? "Figure de style"
-      : "Pathologie"}
+    {buttonType === QUESTION_TYPES.FIGURE ? "Figure de style" : "Pathologie"}
   </button>
 );
 

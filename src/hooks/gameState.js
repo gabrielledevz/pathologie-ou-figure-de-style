@@ -14,8 +14,6 @@ export const useGameState = () => {
     setTypeOfButtonClicked(buttonType);
   };
 
-  //test
-
   const displayNextQuestion = () => {
     if (questionId === NB_QUESTIONS - 1) {
       return false;

@@ -10,8 +10,6 @@ const QUESTION_TYPES = {
   NONE: "none",
 };
 
-const Question = (props) => <div>{props.question}</div>;
-
 // Trouver un moyen de faire apparaître le composant réponse avec tuto Pierre
 // Créer des tests
 // Redécouper le code
@@ -53,7 +51,7 @@ const Quizz = (props) => {
           <ShareButtons />
         </div>
         <div className="question">
-          <Question question={question.word} />
+          <div>{question.word}</div>
         </div>
         <div className="score">
           <p>Score</p>

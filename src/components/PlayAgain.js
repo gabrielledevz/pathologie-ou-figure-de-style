@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import ScoreContext from "../context/scoreContext";
 import { NB_QUESTIONS } from "../repositories/questions";
 
-const PlayAgain = (props) => {
+const PlayAgain = ({ startNewGame }) => {
   const { score, setScore } = useContext(ScoreContext);
 
   const startAgain = () => {
     setScore(0);
-    props.startNewGame();
+    startNewGame();
   };
 
   return (
@@ -25,7 +25,7 @@ const PlayAgain = (props) => {
           className="restart-button hvr-underline-from-left"
           onClick={startAgain}
         >
-          Rejouer
+          Refaire une partie
         </button>
       </div>
     </div>

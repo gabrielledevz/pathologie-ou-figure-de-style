@@ -1,41 +1,34 @@
-const AnswerDetails = (props) => (
+import WikipediaLink from "./components/WikipediaLink";
+
+const AnswerDetails = ({
+  question: { word, genre, definition, example, author, source },
+}) => (
   <div className="info-zone">
     <div className="definition">
       <em>
-        {props.question.word}, {props.question.genre} :
+        {word}, {genre} :
       </em>{" "}
-      {props.question.definition}
+      {definition}
     </div>
-    {props.question.example && (
+    {example && (
       <p className="example">
-        Exemple : {props.question.example} — {props.question.author},{" "}
-        <em>{props.question.book}</em>
+        Exemple : {example} — {author}, <em>{source}</em>
       </p>
     )}
+    <WikipediaLink request={word} />
   </div>
-);
-
-const WikipediaLink = (word) => (
-  <a
-    href={`https://fr.wikipedia.org/wiki/${word}`}
-    className="wikipedia-link"
-    target="_blank"
-    rel="noreferrer"
-  >
-    Aller sur l'article Wikipédia
-  </a>
 );
 
 // Ajouter animation pour apparition de la réponse ? Plus difficile
 
-const Answer = (props) => {
+const Answer = ({ question, isCorrect, displayNext }) => {
   return (
     <div className="answer-information">
       <div className="answer-result">
-        {props.isCorrect ? "C'est la bonne réponse !" : "C'est raté !"}
+        {isCorrect ? "C'est la bonne réponse !" : "C'est raté !"}
       </div>
-      <AnswerDetails question={props.question} />
-      <button className="next-button" onClick={props.displayNext}>
+      <AnswerDetails question={question} />
+      <button className="next-button" onClick={displayNext}>
         Suivant
       </button>
     </div>
