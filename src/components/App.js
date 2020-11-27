@@ -5,8 +5,6 @@ import PlayAgain from "./PlayAgain";
 import ScoreContext from "../context/ScoreContext";
 
 const Game = () => {
-  const Titre = () => <div>Pathologie ou figure de style ?</div>;
-
   const [gameIsOn, setGameIsOn] = useState(true);
   const [score, setScore] = useState(0);
   const value = { score, setScore };
@@ -15,7 +13,7 @@ const Game = () => {
     <ScoreContext.Provider value={value}>
       <div className="window">
         <div className="title">
-          <Titre />
+          <div>Pathologie ou figure de style ?</div>
         </div>
         <div className="game">
           {gameIsOn ? (
