@@ -244,7 +244,7 @@ button:enabled {
   border-color: var(--color-bronze);
   padding-left: 55px;
   padding-right: 35px;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
   padding-top: 20px;
   position: relative;
   z-index: 1;
@@ -313,6 +313,7 @@ outline-offset: 15px;*/
   width: 150px;
   height: 40px;
   font-size: 15px;
+  margin-top: 15px;
   color: var(--color-yellow);
   cursor: pointer;
   outline: none;

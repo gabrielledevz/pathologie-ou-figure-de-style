@@ -12,7 +12,6 @@ const AnswerDetails = (props) => (
         <em>{props.question.book}</em>
       </p>
     )}
-    <WikipediaLink request={props.question.word} />
   </div>
 );
 
