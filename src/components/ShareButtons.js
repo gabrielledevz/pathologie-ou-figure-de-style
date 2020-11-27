@@ -10,14 +10,14 @@ const ShareButtons = ({ title, url, twitterHandle, tags }) => {
         quote="Show me the Google!"
         url={"https://www.google.com"}
       >
-        <FacebookIcon />
+        <FacebookIcon className="social-media-icon" />
       </FacebookShareButton>
       <TwitterShareButton
         className="social-media-button"
         quote="Show me the Google!"
         url={"https://www.google.com"}
       >
-        <TwitterIcon />
+        <TwitterIcon className="social-media-icon" />
       </TwitterShareButton>
     </div>
   );
