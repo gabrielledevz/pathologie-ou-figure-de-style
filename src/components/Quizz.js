@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useGameState } from "../hooks/gameState";
-import Answer from "./Answer";
+import Answer from "./Answer/Answer";
 import AnswerButton from "./AnswerButton";
 import ShareButtons from "./ShareButtons";
 
