@@ -6,10 +6,12 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
+    "@types/react-transition-group": "^1.1.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
     "react-share": "^4.3.1",
+    "react-transition-group": "^4.4.1",
     "save": "^2.4.0",
     "share": "^0.7.40",
     "web-vitals": "^0.2.4"

@@ -191,7 +191,7 @@ body {
 
 button {
   transition-property: background-color, color;
-  transition-duration: 200ms;
+  transition-duration: 300ms;
   transition-timing-function: ease-in-out;
 }
 
@@ -406,4 +406,19 @@ outline-offset: 15px;*/
 .hvr-underline-from-left:focus:before,
 .hvr-underline-from-left:active:before {
   right: 0;
+}
+
+.answer-enter {
+  opacity: 0;
+}
+.answer-enter-active {
+  opacity: 1;
+  transition: opacity 600ms;
+}
+.answer-exit {
+  opacity: 1;
+}
+.answer-exit-active {
+  opacity: 0;
+  transition: opacity 0ms;
 }
