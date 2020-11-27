@@ -1,9 +1,3 @@
-const QUESTION_TYPES = {
-  PATHOLOGIE: "pathologie",
-  FIGURE: "figure",
-  NONE: "none",
-};
-
 const AnswerDetails = (props) => (
   <div className="info-zone">
     <div className="definition">
@@ -12,7 +6,7 @@ const AnswerDetails = (props) => (
       </em>{" "}
       {props.question.definition}
     </div>
-    {props.question.type === QUESTION_TYPES.FIGURE && (
+    {props.question.example && (
       <p className="example">
         Exemple : {props.question.example} — {props.question.author},{" "}
         <em>{props.question.book}</em>
