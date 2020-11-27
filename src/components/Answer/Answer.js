@@ -1,24 +1,4 @@
-import WikipediaLink from "./components/WikipediaLink";
-
-const AnswerDetails = ({
-  question: { word, genre, definition, example, author, source },
-}) => (
-  <div className="info-zone">
-    <div className="definition">
-      <em>
-        {word}, {genre} :
-      </em>{" "}
-      {definition}
-    </div>
-    {example && (
-      <p className="example">
-        Exemple : {example} — {author}, <em>{source}</em>
-      </p>
-    )}
-    <WikipediaLink request={word} />
-  </div>
-);
-
+import AnswerDetails from "./components/AnswerDetails";
 // Ajouter animation pour apparition de la réponse ? Plus difficile
 
 const Answer = ({ question, isCorrect, displayNext }) => {
