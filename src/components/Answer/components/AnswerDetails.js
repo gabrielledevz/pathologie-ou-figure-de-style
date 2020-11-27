@@ -1,6 +1,6 @@
 import WikipediaLink from "./WikipediaLink";
 
-const WIKI_ENABLE = false;
+const WIKI_ENABLED = false;
 const esp = "\u00a0";
 
 const AnswerDetails = ({
@@ -21,7 +21,7 @@ const AnswerDetails = ({
         {author}, <em>{source}</em>
       </p>
     )}
-    {WIKI_ENABLE && <WikipediaLink request={word} />}
+    {WIKI_ENABLED && <WikipediaLink request={word} />}
   </div>
 );
 
