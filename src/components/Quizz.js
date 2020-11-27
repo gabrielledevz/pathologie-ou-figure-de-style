@@ -3,7 +3,7 @@ import { useGameState } from "../hooks/gameState";
 import Answer from "./Answer/Answer";
 import AnswerButton from "./AnswerButton";
 import ShareButtons from "./ShareButtons";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 
 const QUESTION_TYPES = {
   PATHOLOGIE: "pathologie",
@@ -11,40 +11,43 @@ const QUESTION_TYPES = {
   NONE: "none",
 };
 
+const NO_QUESTION_LEFT = false;
+
 // Trouver un moyen de faire apparaître le composant réponse avec tuto Pierre
 // Créer des tests
 // Ajouter des raccourcis clavier pour répondre (1-2-Enter par exemple)
 // Changer favicon et titre
 // Changer écran fin
 
-const Quizz = (props) => {
+const Quizz = ({ endTheGame }) => {
   const {
     score,
     answerFunction,
-    displayNextQuestion,
+    moveOnNextQuestion,
     answerIsCorrect,
     question,
   } = useGameState();
 
-  const [showAnswer, setShowAnswer] = useState(false);
+  const [answerDisplayed, setAnswerDisplayed] = useState(false);
 
   const [typeOfButtonClicked, setTypeOfButtonClicked] = useState(
     QUESTION_TYPES.NONE
   );
 
   const handleButton = (type) => () => {
-    if (typeOfButtonClicked === QUESTION_TYPES.NONE) {
-      answerFunction(type, setTypeOfButtonClicked);
-      setShowAnswer(true);
+    if (answerDisplayed === false) {
+      setTypeOfButtonClicked(type);
+      answerFunction(type);
+      setAnswerDisplayed(true);
     }
   };
 
   const displayNext = () => {
     setTypeOfButtonClicked(QUESTION_TYPES.NONE);
-    setShowAnswer(false);
+    setAnswerDisplayed(false);
 
-    if (!displayNextQuestion()) {
-      props.endTheGame();
+    if (moveOnNextQuestion() === NO_QUESTION_LEFT) {
+      endTheGame();
     }
   };
 
@@ -76,7 +79,7 @@ const Quizz = (props) => {
           />
         </div>
         <CSSTransition
-          in={showAnswer}
+          in={answerDisplayed}
           timeout={500}
           classNames="answer"
           unmountOnExit

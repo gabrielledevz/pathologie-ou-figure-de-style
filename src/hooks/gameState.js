@@ -7,14 +7,13 @@ export const useGameState = () => {
   const [questionId, setQuestionId] = useState(0);
   const [answerIsCorrect, setAnswerIsCorrect] = useState(null);
 
-  const answerFunction = (buttonType, setTypeOfButtonClicked) => {
+  const answerFunction = (buttonType) => {
     const correctlyAnswered = buttonType === question.type;
     setAnswerIsCorrect(correctlyAnswered);
     setScore(correctlyAnswered ? score + 1 : score);
-    setTypeOfButtonClicked(buttonType);
   };
 
-  const displayNextQuestion = () => {
+  const moveOnNextQuestion = () => {
     if (questionId === NB_QUESTIONS - 1) {
       return false;
     } else {
@@ -28,7 +27,7 @@ export const useGameState = () => {
   return {
     score,
     answerFunction,
-    displayNextQuestion,
+    moveOnNextQuestion,
     answerIsCorrect,
     question,
   };
