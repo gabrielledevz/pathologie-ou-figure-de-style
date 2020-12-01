@@ -333,10 +333,11 @@ outline-offset: 15px;*/
 }
 
 .game-done-panel {
-  height: 50%;
   padding-top: 30px;
   width: 60%;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin: auto;
   background-color: var(--color-transparent-bronze);
   border-radius: 15px;
@@ -377,15 +378,21 @@ outline-offset: 15px;*/
 .message-fin {
   color: var(--color-dark-blue);
   height: 10%;
+}
+
+.message-fin p {
   font-size: 20px;
+  margin-top: 10px;
 }
 
 .final-score {
   color: var(--color-blue);
   height: 60%;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-.game-done-panel p {
+.final-score p {
   margin-bottom: 5px;
   margin-top: 30px;
   font-size: 16px;

@@ -16,18 +16,24 @@ const PlayAgain = ({ startNewGame }) => {
     startNewGame();
   };
 
-  const playAgainText =
-    MAX_GAME_NUMBER === gameNumber + 1 ? "Rejouer au jeu" : "Continuer à jouer";
+  const isLastGame = MAX_GAME_NUMBER === gameNumber + 1;
 
-  const thankPlayerText =
-    MAX_GAME_NUMBER === gameNumber + 1
-      ? "Vous avez répondu à toutes les questions du jeu !"
-      : "Merci d'avoir joué !";
+  const Message = () => {
+    if (score > 13) {
+      return <p>Belle performance !</p>;
+    } else if (score > 10) {
+      return <p>Pas mal du tout !</p>;
+    } else {
+      return <p>Pas simple n'est-ce pas ?</p>;
+    }
+  };
 
   return (
     <div className="game-done">
       <div className="game-done-panel">
-        <div className="message-fin">{thankPlayerText}</div>
+        <div className="message-fin">
+          <Message />
+        </div>
         <div className="final-score">
           <p>Votre score</p>
           <div className="final-score-number">
@@ -35,11 +41,14 @@ const PlayAgain = ({ startNewGame }) => {
             {score}/{NB_QUESTIONS_PER_GAME}
           </div>
         </div>
+        {MAX_GAME_NUMBER === gameNumber + 1 && (
+          <p>Vous avez répondu à toutes les questions du jeu !</p>
+        )}
         <button
           className="restart-button hvr-underline-from-left"
           onClick={startAgain}
         >
-          {playAgainText}
+          {isLastGame ? "Rejouer au jeu" : "Continuer à jouer"}
         </button>
       </div>
     </div>
