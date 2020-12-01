@@ -3,7 +3,10 @@
   --color-dark-blue: #030027;
   --color-blue: #151e3f;
   --color-pink: #c16e70;
+  --color-transparent-pink: #c16e7033;
+  --color-transparent-blue: #151e3fc0;
   --color-bronze: #dc9e82;
+  --color-transparent-bronze: #dc9e82c0;
   --color-dark-pink: #b65455;
   --color-dark-bronze: #d28460;
   --color-very-dark-pink: #8f3d3f;
@@ -235,7 +238,7 @@ button:enabled {
   width: 100%;
   text-align: center;
   margin-top: 55px;
-  margin-bottom: 15px;
+  margin-bottom: 35px;
   border-style: solid;
   border-color: var(--color-bronze);
   padding-left: 55px;
@@ -330,22 +333,55 @@ outline-offset: 15px;*/
 }
 
 .game-done-panel {
-  height: 60%;
+  height: 50%;
   padding-top: 30px;
   width: 60%;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
   margin: auto;
-  background-color: var(--color-blue);
-  font-size: 20px;
-  border: solid var(--color-bronze) 10px;
+  background-color: var(--color-transparent-bronze);
+  border-radius: 15px;
+}
+/*
+.game-done-panel:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -10px;
+  left: 45px;
+  bottom: -15px;
+  right: -15px;
+  padding-right: 15px;
+  border-style: solid;
+  border-color: var(--color-bronze);
+  border-width: 2px;
+  min-height: 100%;
+  z-index: -1;
 }
 
+.game-done-panel:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -27px;
+  left: 20px;
+  bottom: -25px;
+  right: 20px;
+  padding-right: 15px;
+  border-style: solid;
+  border-color: var(--color-bronze);
+  border-width: 2px;
+  min-height: 100%;
+  z-index: -2;
+}*/
+
 .message-fin {
-  color: var(--color-pink);
+  color: var(--color-dark-blue);
+  height: 10%;
+  font-size: 20px;
 }
 
 .final-score {
-  color: var(--color-bronze);
+  color: var(--color-blue);
   height: 60%;
 }
 
@@ -363,15 +399,14 @@ outline-offset: 15px;*/
 .restart-button {
   margin-bottom: 15px;
   background-color: var(--color-pink);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 50px;
+  padding-right: 50px;
   box-shadow: none;
   border: none;
-  height: 45px;
   font-size: 16px;
-  color: var(--color-blue);
+  color: var(--color-yellow);
   font-family: "Sintony";
   font-weight: bold;
   outline: none;
@@ -394,7 +429,7 @@ outline-offset: 15px;*/
   left: 0;
   right: 100%;
   bottom: 0;
-  height: 8px;
+  height: 6px;
   -webkit-transition-property: right;
   transition-property: right;
   -webkit-transition-duration: 0.3s;
