@@ -1,11 +1,19 @@
 import { useContext, useState } from "react";
 import ScoreContext from "../context/scoreContext";
-import { GAME_QUESTIONS, NB_QUESTIONS } from "../repositories/questions";
+import {
+  QUESTION_DATABASE,
+  NB_QUESTIONS_PER_GAME,
+} from "../repositories/questions";
 
 export const useGameState = () => {
-  const { score, setScore } = useContext(ScoreContext);
+  const { score, setScore, gameNumber } = useContext(ScoreContext);
   const [questionId, setQuestionId] = useState(0);
   const [answerIsCorrect, setAnswerIsCorrect] = useState(null);
+
+  const GAME_QUESTIONS = QUESTION_DATABASE.slice(
+    gameNumber * NB_QUESTIONS_PER_GAME,
+    gameNumber * NB_QUESTIONS_PER_GAME + NB_QUESTIONS_PER_GAME
+  );
 
   const answerFunction = (buttonType) => {
     const correctlyAnswered = buttonType === question.type;
@@ -14,7 +22,7 @@ export const useGameState = () => {
   };
 
   const moveOnNextQuestion = () => {
-    if (questionId === NB_QUESTIONS - 1) {
+    if (questionId === NB_QUESTIONS_PER_GAME - 1) {
       return false;
     } else {
       setQuestionId(questionId + 1);

@@ -7,7 +7,8 @@ import ScoreContext from "../context/scoreContext";
 const Game = () => {
   const [gameIsOn, setGameIsOn] = useState(true);
   const [score, setScore] = useState(0);
-  const value = { score, setScore };
+  const [gameNumber, setGameNumber] = useState(0);
+  const value = { score, setScore, gameNumber, setGameNumber };
 
   return (
     <ScoreContext.Provider value={value}>
