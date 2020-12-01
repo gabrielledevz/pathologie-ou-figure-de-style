@@ -18,7 +18,8 @@ const AnswerDetails = ({
         Exemple : «{esp}
         {example}
         {esp}» —{esp}
-        {author}, <em>{source}</em>
+        {author ? `${author},` : ""}
+        <em>{source}</em>
       </p>
     )}
     {WIKI_ENABLED && <WikipediaLink request={word} />}
