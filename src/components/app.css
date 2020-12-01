@@ -293,6 +293,7 @@ outline-offset: 15px;*/
   padding-left: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
+  margin-bottom: 0px;
 }
 
 .example em {
@@ -341,24 +342,25 @@ outline-offset: 15px;*/
   margin: auto;
   background-color: var(--color-transparent-bronze);
   border-radius: 15px;
+  z-index: 1;
+  position: relative;
 }
-/*
+
 .game-done-panel:before {
   content: "";
   display: block;
   position: absolute;
-  top: -10px;
-  left: 45px;
-  bottom: -15px;
-  right: -15px;
-  padding-right: 15px;
+  top: 10px;
+  left: 10px;
+  bottom: -10px;
+  right: -10px;
   border-style: solid;
-  border-color: var(--color-bronze);
+  border-color: var(--color-blue);
   border-width: 2px;
-  min-height: 100%;
   z-index: -1;
+  border-radius: 15px;
 }
-
+/*
 .game-done-panel:after {
   content: "";
   display: block;
@@ -373,8 +375,8 @@ outline-offset: 15px;*/
   border-width: 2px;
   min-height: 100%;
   z-index: -2;
-}*/
-
+}
+*/
 .message-fin {
   color: var(--color-dark-blue);
   height: 10%;
