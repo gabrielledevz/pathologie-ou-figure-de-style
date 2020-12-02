@@ -13,12 +13,6 @@ const QUESTION_TYPES = {
 
 const NO_QUESTION_LEFT = false;
 
-// Trouver un moyen de faire apparaître le composant réponse avec tuto Pierre
-// Créer des tests
-// Ajouter des raccourcis clavier pour répondre (1-2-Enter par exemple)
-// Changer favicon et titre
-// Changer écran fin
-
 const Quizz = ({ endTheGame }) => {
   const {
     score,
@@ -60,9 +54,16 @@ const Quizz = ({ endTheGame }) => {
         <div className="question">
           <div>{question.word}</div>
         </div>
+
         <div className="score">
           <p>Score</p>
-          <div className="score-number">{score}</div>
+          <CSSTransition
+            in={answerIsCorrect && answerDisplayed}
+            timeout={1000}
+            classNames="score"
+          >
+            <div className="score-number">{score}</div>
+          </CSSTransition>
         </div>
       </div>
       <div className="lower">
