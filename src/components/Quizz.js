@@ -52,7 +52,13 @@ const Quizz = ({ endTheGame }) => {
           <ShareButtons />
         </div>
         <div className="question">
-          <div>{question.word}</div>
+          <CSSTransition
+            in={!answerDisplayed}
+            timeout={1000}
+            classNames="question"
+          >
+            <div>{question.word}</div>
+          </CSSTransition>
         </div>
 
         <div className="score">
