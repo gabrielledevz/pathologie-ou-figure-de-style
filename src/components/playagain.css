@@ -1,5 +1,5 @@
 .game-done {
-  height: 100%;
+  height: 80%;
   text-align: center;
   margin: auto;
   vertical-align: middle;
@@ -34,12 +34,12 @@
   border-radius: 15px;
 }
 
-.message-fin {
+.score-comment {
   color: var(--color-dark-blue);
   height: 10%;
 }
 
-.message-fin p {
+.score-comment p {
   font-size: 20px;
   margin-top: 10px;
 }

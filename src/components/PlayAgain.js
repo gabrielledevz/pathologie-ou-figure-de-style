@@ -19,7 +19,7 @@ const PlayAgain = ({ startNewGame }) => {
 
   const isLastGame = MAX_GAME_NUMBER === gameNumber + 1;
 
-  const Message = () => {
+  const ScoreComment = () => {
     if (score > 13) {
       return <p>Belle performance !</p>;
     } else if (score > 10) {
@@ -32,8 +32,8 @@ const PlayAgain = ({ startNewGame }) => {
   return (
     <div className="game-done">
       <div className="game-done-panel">
-        <div className="message-fin">
-          <Message />
+        <div className="score-comment">
+          <ScoreComment />
         </div>
         <div className="final-score">
           <p>Votre score</p>
