@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
-import ScoreContext from "../context/scoreContext";
+import GameContext from "../context/gameContext";
 import {
   QUESTION_DATABASE,
   NB_QUESTIONS_PER_GAME,
 } from "../repositories/questions";
 
 export const useGameState = () => {
-  const { score, setScore, gameNumber } = useContext(ScoreContext);
+  const { score, setScore, gameNumber } = useContext(GameContext);
   const [questionId, setQuestionId] = useState(0);
   const [answerIsCorrect, setAnswerIsCorrect] = useState(null);
 

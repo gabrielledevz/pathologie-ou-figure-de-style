@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./app.css";
 import Quizz from "./Quizz";
 import PlayAgain from "./PlayAgain";
-import ScoreContext from "../context/scoreContext";
+import GameContext from "../context/gameContext";
 
 const Game = () => {
   const [gameIsOn, setGameIsOn] = useState(true);
@@ -11,7 +11,7 @@ const Game = () => {
   const value = { score, setScore, gameNumber, setGameNumber };
 
   return (
-    <ScoreContext.Provider value={value}>
+    <GameContext.Provider value={value}>
       <div className="window">
         <div className="title">
           <div>Pathologie ou figure de style ?</div>
@@ -24,7 +24,7 @@ const Game = () => {
           )}
         </div>
       </div>
-    </ScoreContext.Provider>
+    </GameContext.Provider>
   );
 };
 

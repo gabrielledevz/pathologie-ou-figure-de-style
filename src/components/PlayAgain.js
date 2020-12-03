@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import ScoreContext from "../context/scoreContext";
+import GameContext from "../context/gameContext";
 import "./playagain.css";
 import {
   NB_QUESTIONS_PER_GAME,
@@ -8,7 +8,7 @@ import {
 
 const PlayAgain = ({ startNewGame }) => {
   const { score, setScore, gameNumber, setGameNumber } = useContext(
-    ScoreContext
+    GameContext
   );
 
   const startAgain = () => {
