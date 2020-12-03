@@ -1,8 +1,0 @@
-[
-	{"word": "patho1", "genre": "nom féminin", "type": "pathologie", "definition": "blablabla patho1"},
-	{"word": "patho2", "genre": "nom féminin", "type": "pathologie", "definition": "blablabla patho2"},
-	{"word": "patho3", "genre": "nom masculin", "type": "pathologie", "definition": "blablabla patho3"},
-		{"word": "aposiopèse", "genre": "nom féminin", "type": "figure", "definition": "figure qui consiste à suspendre le sens d'une phrase en laissant au lecteur le soin de la compléter.", "example": "Tu vas ouïr le comble des horreurs. / J'aime… À ce nom fatal, je tremble, je frissonne. / J'aime... hihih ..", "author": "Jean Racine", "source": "Phèdre"},
-	{"word": "figure1", "genre": "nom féminin", "type": "figure", "definition": "blablabla figure1", "example": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero risus, vestibulum vitae elementum et.", "author": "author1", "source": "source1"},
-	{"word": "figure2", "genre": "nom masculin", "type": "figure", "definition": "blablabla figure2", "example": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero risus, vestibulum vitae elementum et.", "author": "author2", "source": "source2"}
-]
