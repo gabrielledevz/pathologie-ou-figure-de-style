@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import ScoreContext from "../context/scoreContext";
+import "./playagain.css";
 import {
   NB_QUESTIONS_PER_GAME,
   MAX_GAME_NUMBER,
