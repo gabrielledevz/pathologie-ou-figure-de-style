@@ -4,7 +4,7 @@ import Quizz from "./Quizz";
 import PlayAgain from "./PlayAgain";
 import GameContext from "../context/gameContext";
 
-const Game = () => {
+const App = () => {
   const [gameIsOn, setGameIsOn] = useState(true);
   const [score, setScore] = useState(0);
   const [gameNumber, setGameNumber] = useState(0);
@@ -28,4 +28,4 @@ const Game = () => {
   );
 };
 
-export default Game;
+export default App;
