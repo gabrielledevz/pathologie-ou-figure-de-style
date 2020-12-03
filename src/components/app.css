@@ -92,3 +92,13 @@ body {
 .title div {
   padding-top: 5px;
 }
+
+button {
+  transition-property: background-color, color;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+button:enabled {
+  cursor: pointer;
+}

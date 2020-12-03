@@ -47,9 +47,9 @@ const Quizz = ({ endTheGame }) => {
   };
 
   return (
-    <div className="whole">
-      <div className="middle">
-        <div className="secret-zone">
+    <div className="quizz">
+      <div className="upper-part">
+        <div className="share">
           <ShareButtons />
         </div>
         <div className="question">
@@ -73,8 +73,8 @@ const Quizz = ({ endTheGame }) => {
           </CSSTransition>
         </div>
       </div>
-      <div className="lower">
-        <div className="button-zone">
+      <div className="lower-part">
+        <div className="player-choice">
           <AnswerButton
             onClick={handleButton(QUESTION_TYPES.PATHOLOGIE)}
             buttonType={QUESTION_TYPES.PATHOLOGIE}

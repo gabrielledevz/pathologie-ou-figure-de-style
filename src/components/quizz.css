@@ -1,8 +1,8 @@
-.whole {
+.quizz {
   height: 100%;
 }
 
-.middle {
+.upper-part {
   width: 100%;
   text-align: center;
   padding-top: 20px;
@@ -14,7 +14,7 @@
   padding-right: 10%;
 }
 
-.secret-zone {
+.share {
   padding-top: 10px;
   padding-bottom: 10px;
   float: left;
@@ -52,23 +52,13 @@
   font-size: 40px;
 }
 
-.lower {
+.lower-part {
   width: 85%;
   margin: auto;
   height: 60%;
 }
 
-button {
-  transition-property: background-color, color;
-  transition-duration: 300ms;
-  transition-timing-function: ease-in-out;
-}
-
-button:enabled {
-  cursor: pointer;
-}
-
-.button-zone {
+.player-choice {
   text-align: center;
   margin-bottom: 20px;
 }
