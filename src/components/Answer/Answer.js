@@ -1,5 +1,5 @@
 import AnswerDetails from "./components/AnswerDetails";
-// Ajouter animation pour apparition de la réponse ? Plus difficile
+import "./answer.css";
 
 const Answer = ({ question, isCorrect, displayNext }) => {
   return (

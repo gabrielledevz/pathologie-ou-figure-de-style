@@ -1,4 +1,5 @@
 import WikipediaLink from "./WikipediaLink";
+import "./answerdetails.css";
 
 const WIKI_ENABLED = false;
 const esp = "\u00a0";

@@ -1,3 +1,5 @@
+import "./wikipedialink.css";
+
 const WikipediaLink = ({ request }) => {
   return (
     <a
