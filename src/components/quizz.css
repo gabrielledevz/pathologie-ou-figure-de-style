@@ -1,0 +1,105 @@
+.whole {
+  height: 100%;
+}
+
+.middle {
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.secret-zone {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  float: left;
+  width: 25%;
+  height: 100%;
+}
+
+.question {
+  float: left;
+  height: 100%;
+  width: 70%;
+  font-size: 50px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  font-family: "Zeyada";
+}
+
+.score {
+  float: left;
+  position: relative;
+  height: 100%;
+  width: 25%;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.score p {
+  font-size: 20px;
+  margin: auto;
+}
+
+.score-number {
+  font-size: 40px;
+}
+
+.lower {
+  width: 85%;
+  margin: auto;
+  height: 60%;
+}
+
+button {
+  transition-property: background-color, color;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+button:enabled {
+  cursor: pointer;
+}
+
+.button-zone {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.answer-enter {
+  opacity: 0;
+}
+.answer-enter-active {
+  opacity: 1;
+  transition: opacity 600ms;
+}
+.answer-exit {
+  opacity: 1;
+}
+.answer-exit-active {
+  opacity: 0;
+  transition: opacity 0ms;
+}
+
+.score-enter {
+  transform: scale(0.8);
+}
+.score-enter-active {
+  transform: scale(1);
+  transition: all 0.5s ease-in-out;
+}
+
+.question-enter {
+  opacity: 0.5;
+}
+.question-enter-active {
+  opacity: 1;
+  transition: all 0.5s ease-in;
+}

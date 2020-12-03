@@ -4,6 +4,7 @@ import Answer from "./Answer/Answer";
 import AnswerButton from "./AnswerButton";
 import ShareButtons from "./ShareButtons";
 import { CSSTransition } from "react-transition-group";
+import "./quizz.css";
 
 const QUESTION_TYPES = {
   PATHOLOGIE: "pathologie",
@@ -65,7 +66,7 @@ const Quizz = ({ endTheGame }) => {
           <p>Score</p>
           <CSSTransition
             in={answerIsCorrect && answerDisplayed}
-            timeout={1000}
+            timeout={500}
             classNames="score"
           >
             <div className="score-number">{score}</div>
