@@ -1,6 +1,7 @@
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 import FacebookIcon from "../assets/FacebookIcon";
 import TwitterIcon from "../assets/TwitterIcon";
+import "./sharebuttons.css";
 
 const ShareButtons = ({ title, url, twitterHandle, tags }) => {
   return (

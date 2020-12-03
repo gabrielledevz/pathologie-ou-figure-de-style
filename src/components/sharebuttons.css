@@ -1,0 +1,38 @@
+.share-buttons {
+  width: 70px;
+  margin: auto;
+}
+
+.social-media-button {
+  outline: none;
+}
+
+.social-media-icon {
+  width: 40px;
+  height: 40px;
+  overflow: visible;
+}
+
+.social-media-background {
+  fill: var(--color-yellow);
+  transition-property: fill;
+  transition-duration: 400ms;
+  transition-timing-function: ease-in-out;
+  background: transparent;
+}
+
+.social-media-main {
+  fill: var(--color-dark-bronze);
+  transition-property: fill;
+  transition-duration: 400ms;
+  transition-timing-function: ease-in-out;
+  background: transparent;
+}
+
+.social-media-icon:hover .social-media-background {
+  fill: var(--color-dark-blue);
+}
+
+.social-media-icon:hover .social-media-main {
+  fill: var(--color-dark-bronze);
+}
