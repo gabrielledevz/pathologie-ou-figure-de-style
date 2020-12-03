@@ -1,0 +1,26 @@
+.answer-button {
+  height: 80%;
+  width: 200px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+  border-radius: 13px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: "Sintony";
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  outline: none;
+  background-color: var(--color-pink);
+  color: var(--color-blue);
+}
+
+.answer-button:hover:enabled {
+  background-color: var(--color-dark-pink);
+}
+
+.button-selected {
+  background-color: var(--color-blue);
+  color: var(--color-pink);
+}

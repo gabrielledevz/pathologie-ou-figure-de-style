@@ -1,3 +1,5 @@
+import "./answerbutton.css";
+
 const QUESTION_TYPES = {
   PATHOLOGIE: "pathologie",
   FIGURE: "figure",
