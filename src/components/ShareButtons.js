@@ -9,14 +9,14 @@ const ShareButtons = ({ title, url, twitterHandle, tags }) => {
       <FacebookShareButton
         className="social-media-button"
         quote="Show me the Google!"
-        url={"https://www.google.com"}
+        url={"https://gabrielledevz.github.io/pathologie-ou-figure-de-style/"}
       >
         <FacebookIcon className="social-media-icon" />
       </FacebookShareButton>
       <TwitterShareButton
         className="social-media-button"
         quote="Show me the Google!"
-        url={"https://www.google.com"}
+        url={"https://gabrielledevz.github.io/pathologie-ou-figure-de-style/"}
       >
         <TwitterIcon className="social-media-icon" />
       </TwitterShareButton>
