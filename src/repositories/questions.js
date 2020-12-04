@@ -10,7 +10,7 @@ export const QUESTION_DATABASE = testMode
   ? QUIZZ_DATA_TEST
   : shuffleArray(QUIZZ_DATA);
 
-export const NB_QUESTIONS_PER_GAME = 5;
+export const NB_QUESTIONS_PER_GAME = testMode ? 5 : 15;
 export const MAX_GAME_NUMBER = Math.trunc(
   QUESTION_DATABASE.length / NB_QUESTIONS_PER_GAME
 );
