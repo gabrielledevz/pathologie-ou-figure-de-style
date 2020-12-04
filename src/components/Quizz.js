@@ -58,7 +58,7 @@ const Quizz = ({ endTheGame }) => {
             timeout={1000}
             classNames="question"
           >
-            <div>{question.word}</div>
+            <div data-cy="question">{question.word}</div>
           </CSSTransition>
         </div>
 
@@ -69,7 +69,9 @@ const Quizz = ({ endTheGame }) => {
             timeout={500}
             classNames="score"
           >
-            <div className="score-number">{score}</div>
+            <div className="score-number" data-cy="score">
+              {score}
+            </div>
           </CSSTransition>
         </div>
       </div>

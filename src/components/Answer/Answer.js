@@ -8,7 +8,11 @@ const Answer = ({ question, isCorrect, displayNext }) => {
         {isCorrect ? "C'est la bonne réponse !" : "C'est raté !"}
       </div>
       <AnswerDetails question={question} />
-      <button className="next-button" onClick={displayNext}>
+      <button
+        className="next-button"
+        onClick={displayNext}
+        data-cy="next-button"
+      >
         Suivant
       </button>
     </div>

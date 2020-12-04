@@ -13,6 +13,7 @@ const AnswerButton = ({ typeClicked, buttonType, onClick }) => (
       typeClicked === buttonType ? "button-selected" : ""
     }`}
     onClick={onClick}
+    data-cy="answer-button"
   >
     {buttonType === QUESTION_TYPES.FIGURE ? "Figure de style" : "Pathologie"}
   </button>

@@ -48,6 +48,7 @@ const PlayAgain = ({ startNewGame }) => {
         <button
           className="restart-button hvr-underline-from-left"
           onClick={startAgain}
+          data-cy="play-again-button"
         >
           {isLastGame ? "Rejouer au jeu" : "Continuer à jouer"}
         </button>
