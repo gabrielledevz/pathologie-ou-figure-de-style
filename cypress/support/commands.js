@@ -18,14 +18,14 @@ Cypress.Commands.add("checkScoreIs", (num) => {
   cy.get("[data-cy=score]").should("have.text", num);
 });
 
-Cypress.Commands.add("shouldBeGoodAnswer", (score, shouldBeGood) => {
-  if (shouldBeGood) {
-    cy.checkScoreIs(score + 1);
-    cy.contains("C'est la bonne réponse !");
-  } else {
-    cy.checkScoreIs(score);
-    cy.contains("C'est raté !");
-  }
+Cypress.Commands.add("shouldBeCorrect", (score) => {
+  cy.checkScoreIs(score + 1);
+  cy.contains("C'est la bonne réponse !");
+});
+
+Cypress.Commands.add("shouldBeWrong", (score) => {
+  cy.checkScoreIs(score);
+  cy.contains("C'est raté !");
 });
 
 Cypress.Commands.add("questionIs", (word) => {
