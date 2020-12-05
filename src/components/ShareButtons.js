@@ -8,14 +8,13 @@ const ShareButtons = ({ title, url, twitterHandle, tags }) => {
     <div className={styles.buttons}>
       <FacebookShareButton
         className={styles.socialMediaButton}
-        quote="Show me the Google!"
         url={"https://gabrielledevz.github.io/pathologie-ou-figure-de-style/"}
       >
         <FacebookIcon className={styles.socialMediaIcon} />
       </FacebookShareButton>
       <TwitterShareButton
         className={styles.socialMediaButton}
-        quote="Show me the Google!"
+        title="Pathologie ou figure de style ?"
         url={"https://gabrielledevz.github.io/pathologie-ou-figure-de-style/"}
       >
         <TwitterIcon className={styles.socialMediaIcon} />
