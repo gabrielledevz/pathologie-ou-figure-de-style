@@ -1,4 +1,3 @@
-//import "./answerbutton.css";
 import styles from "./answerbutton.module.css";
 
 const QUESTION_TYPES = {
