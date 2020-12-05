@@ -1,4 +1,5 @@
-import "./answerbutton.css";
+//import "./answerbutton.css";
+import styles from "./answerbutton.module.css";
 
 const QUESTION_TYPES = {
   PATHOLOGIE: "pathologie",
@@ -9,8 +10,8 @@ const QUESTION_TYPES = {
 const AnswerButton = ({ typeClicked, buttonType, onClick }) => (
   <button
     disabled={typeClicked !== QUESTION_TYPES.NONE}
-    className={`answer-button ${
-      typeClicked === buttonType ? "button-selected" : ""
+    className={`${styles.answerButton} ${
+      typeClicked === buttonType ? `${styles.buttonSelected}` : ""
     }`}
     onClick={onClick}
     data-cy="answer-button"

@@ -1,0 +1,38 @@
+.buttons {
+  width: 70px;
+  margin: auto;
+}
+
+.socialMediaButton {
+  outline: none;
+}
+
+.socialMediaIcon {
+  width: 40px;
+  height: 40px;
+  overflow: visible;
+}
+
+.buttonBackground {
+  fill: var(--color-yellow);
+  transition-property: fill;
+  transition-duration: 400ms;
+  transition-timing-function: ease-in-out;
+  background: transparent;
+}
+
+.socialMediaMain {
+  fill: var(--color-dark-bronze);
+  transition-property: fill;
+  transition-duration: 400ms;
+  transition-timing-function: ease-in-out;
+  background: transparent;
+}
+
+.socialMediaIcon:hover .buttonBackground {
+  fill: var(--color-dark-blue);
+}
+
+.socialMediaIcon:hover .socialMediaMain {
+  fill: var(--color-dark-bronze);
+}

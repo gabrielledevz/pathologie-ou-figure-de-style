@@ -1,10 +1,10 @@
-import "./wikipedialink.css";
+import styles from "./wikipedialink.module.css";
 
 const WikipediaLink = ({ request }) => {
   return (
     <a
       href={`https://fr.wikipedia.org/wiki/${request}`}
-      className="wikipedia-link"
+      className={styles.wikipediaLink}
       target="_blank"
       rel="noreferrer"
     >

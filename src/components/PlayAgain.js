@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import GameContext from "../context/gameContext";
-import "./playagain.css";
+import styles from "./playagain.module.css";
 import {
   NB_QUESTIONS_PER_GAME,
   MAX_GAME_NUMBER,
@@ -30,14 +30,14 @@ const PlayAgain = ({ startNewGame }) => {
   };
 
   return (
-    <div className="game-done">
-      <div className="game-done-panel">
-        <div className="score-comment">
+    <div className={styles.gameDone}>
+      <div className={styles.gameDonePanel}>
+        <div className={styles.scoreComment}>
           <ScoreComment />
         </div>
-        <div className="final-score">
+        <div className={styles.finalScore}>
           <p>Votre score</p>
-          <div className="final-score-number">
+          <div className={styles.finalScoreNumber}>
             {" "}
             {score}/{NB_QUESTIONS_PER_GAME}
           </div>
@@ -46,7 +46,7 @@ const PlayAgain = ({ startNewGame }) => {
           <p>Vous avez répondu à toutes les questions du jeu !</p>
         )}
         <button
-          className="restart-button hvr-underline-from-left"
+          className={`${styles.restartButton} ${styles.hvrUnderlineFromLeft}`}
           onClick={startAgain}
           data-cy="play-again-button"
         >

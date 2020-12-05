@@ -1,0 +1,95 @@
+.quizz {
+  height: 100%;
+}
+
+.upperPart {
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.share {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  float: left;
+  width: 25%;
+  height: 100%;
+}
+
+.question {
+  float: left;
+  height: 100%;
+  width: 70%;
+  font-size: 50px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  font-family: "Zeyada";
+}
+
+.score {
+  float: left;
+  position: relative;
+  height: 100%;
+  width: 25%;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.score p {
+  font-size: 20px;
+  margin: auto;
+}
+
+.scoreNumber {
+  font-size: 40px;
+}
+
+.lowerPart {
+  width: 85%;
+  margin: auto;
+  height: 60%;
+}
+
+.playerChoice {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.answerEnter {
+  opacity: 0;
+}
+.answerEnterActive {
+  opacity: 1;
+  transition: opacity 600ms;
+}
+.answerExit {
+  opacity: 1;
+}
+.answerExitActive {
+  opacity: 0;
+  transition: opacity 0ms;
+}
+
+.scoreEnter {
+  transform: scale(0.8);
+}
+.scoreEnterActive {
+  transform: scale(1);
+  transition: all 0.5s ease-in-out;
+}
+
+.questionEnter {
+  opacity: 0.5;
+}
+.questionEnterActive {
+  opacity: 1;
+  transition: all 0.5s ease-in;
+}

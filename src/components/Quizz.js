@@ -4,7 +4,7 @@ import Answer from "./Answer/Answer";
 import AnswerButton from "./AnswerButton";
 import ShareButtons from "./ShareButtons";
 import { CSSTransition } from "react-transition-group";
-import "./quizz.css";
+import styles from "./quizz.module.css";
 
 const QUESTION_TYPES = {
   PATHOLOGIE: "pathologie",
@@ -47,36 +47,42 @@ const Quizz = ({ endTheGame }) => {
   };
 
   return (
-    <div className="quizz">
-      <div className="upper-part">
-        <div className="share">
+    <div className={styles.quizz}>
+      <div className={styles.upperPart}>
+        <div className={styles.share}>
           <ShareButtons />
         </div>
-        <div className="question">
+        <div className={styles.question}>
           <CSSTransition
             in={!answerDisplayed}
             timeout={1000}
-            classNames="question"
+            classNames={{
+              enter: styles.questionEnter,
+              enterActive: styles.questionEnterActive,
+            }}
           >
             <div data-cy="question">{question.word}</div>
           </CSSTransition>
         </div>
 
-        <div className="score">
+        <div className={styles.score}>
           <p>Score</p>
           <CSSTransition
             in={answerIsCorrect && answerDisplayed}
             timeout={500}
-            classNames="score"
+            classNames={{
+              enter: styles.scoreEnter,
+              enterActive: styles.scoreEnterActive,
+            }}
           >
-            <div className="score-number" data-cy="score">
+            <div className={styles.scoreNumber} data-cy="score">
               {score}
             </div>
           </CSSTransition>
         </div>
       </div>
-      <div className="lower-part">
-        <div className="player-choice">
+      <div className={styles.lowerPart}>
+        <div className={styles.playerChoice}>
           <AnswerButton
             onClick={handleButton(QUESTION_TYPES.PATHOLOGIE)}
             buttonType={QUESTION_TYPES.PATHOLOGIE}
@@ -91,7 +97,12 @@ const Quizz = ({ endTheGame }) => {
         <CSSTransition
           in={answerDisplayed}
           timeout={500}
-          classNames="answer"
+          classNames={{
+            enter: styles.answerEnter,
+            enterActive: styles.answerEnterActive,
+            exit: styles.answerExit,
+            exitActive: styles.answerExitActive,
+          }}
           unmountOnExit
         >
           <Answer

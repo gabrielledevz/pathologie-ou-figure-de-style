@@ -1,5 +1,5 @@
 import WikipediaLink from "./WikipediaLink";
-import "./answerdetails.css";
+import styles from "./answerdetails.module.css";
 
 const WIKI_ENABLED = false;
 const esp = "\u00a0";
@@ -7,15 +7,15 @@ const esp = "\u00a0";
 const AnswerDetails = ({
   question: { word, genre, definition, example, author, source },
 }) => (
-  <div className="info-zone">
-    <div className="definition">
+  <div className={styles.infoZone}>
+    <div className={styles.definition}>
       <em>
         {word}, {genre} :
       </em>{" "}
       {definition}
     </div>
     {example && (
-      <p className="example">
+      <p className={styles.example}>
         Exemple : «{esp}
         {example}
         {esp}» —{esp}
