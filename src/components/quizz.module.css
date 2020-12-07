@@ -1,5 +1,7 @@
 .quizz {
   height: 100%;
+  width: 95%;
+  margin: auto;
 }
 
 .upperPart {
@@ -18,15 +20,14 @@
   padding-top: 10px;
   padding-bottom: 10px;
   float: left;
-  width: 25%;
+  width: 15%;
   height: 100%;
 }
 
 .question {
-  float: left;
   height: 100%;
+  font-size: calc(100% + 3.3vw);
   width: 70%;
-  font-size: 50px;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -35,21 +36,21 @@
 }
 
 .score {
-  float: left;
+  float: right;
   position: relative;
   height: 100%;
-  width: 25%;
+  width: 15%;
   text-transform: uppercase;
   text-align: center;
 }
 
 .score p {
-  font-size: 20px;
+  font-size: 100%;
   margin: auto;
 }
 
 .scoreNumber {
-  font-size: 40px;
+  font-size: calc(100% + 2vw);
 }
 
 .lowerPart {

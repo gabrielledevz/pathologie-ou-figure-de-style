@@ -1,51 +1,5 @@
-:root {
-  --color-yellow: #f2f3d9;
-  --color-dark-blue: #030027;
-  --color-blue: #151e3f;
-  --color-pink: #c16e70;
-  --color-transparent-pink: #c16e7033;
-  --color-transparent-blue: #151e3fc0;
-  --color-bronze: #dc9e82;
-  --color-transparent-bronze: #dc9e82c0;
-  --color-dark-pink: #b65455;
-  --color-dark-bronze: #d28460;
-  --color-very-dark-pink: #8f3d3f;
-  --color-very-dark-bronze: #ce7850;
-  --color-brown: #bf6136;
-}
-
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-* {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 html {
@@ -75,7 +29,7 @@ body {
 
 .game {
   height: 100%;
-  width: 85%;
+  width: 95%;
 }
 
 .title {

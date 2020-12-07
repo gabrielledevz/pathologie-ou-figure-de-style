@@ -1,6 +1,7 @@
 .buttons {
-  width: 70px;
+  width: 50px;
   margin: auto;
+  float: left;
 }
 
 .socialMediaButton {
