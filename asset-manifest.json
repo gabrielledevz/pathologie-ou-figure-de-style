@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/pathologie-ou-figure-de-style/static/css/main.2c323645.chunk.css",
-    "main.js": "/pathologie-ou-figure-de-style/static/js/main.b6d9df36.chunk.js",
-    "main.js.map": "/pathologie-ou-figure-de-style/static/js/main.b6d9df36.chunk.js.map",
+    "main.css": "/pathologie-ou-figure-de-style/static/css/main.bb147e31.chunk.css",
+    "main.js": "/pathologie-ou-figure-de-style/static/js/main.cc9ffee3.chunk.js",
+    "main.js.map": "/pathologie-ou-figure-de-style/static/js/main.cc9ffee3.chunk.js.map",
     "runtime-main.js": "/pathologie-ou-figure-de-style/static/js/runtime-main.5f40bec0.js",
     "runtime-main.js.map": "/pathologie-ou-figure-de-style/static/js/runtime-main.5f40bec0.js.map",
     "static/js/2.b1a97af2.chunk.js": "/pathologie-ou-figure-de-style/static/js/2.b1a97af2.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.af4fa2a5.chunk.js": "/pathologie-ou-figure-de-style/static/js/3.af4fa2a5.chunk.js",
     "static/js/3.af4fa2a5.chunk.js.map": "/pathologie-ou-figure-de-style/static/js/3.af4fa2a5.chunk.js.map",
     "index.html": "/pathologie-ou-figure-de-style/index.html",
-    "static/css/main.2c323645.chunk.css.map": "/pathologie-ou-figure-de-style/static/css/main.2c323645.chunk.css.map",
+    "static/css/main.bb147e31.chunk.css.map": "/pathologie-ou-figure-de-style/static/css/main.bb147e31.chunk.css.map",
     "static/js/2.b1a97af2.chunk.js.LICENSE.txt": "/pathologie-ou-figure-de-style/static/js/2.b1a97af2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5f40bec0.js",
     "static/js/2.b1a97af2.chunk.js",
-    "static/css/main.2c323645.chunk.css",
-    "static/js/main.b6d9df36.chunk.js"
+    "static/css/main.bb147e31.chunk.css",
+    "static/js/main.cc9ffee3.chunk.js"
   ]
 }
