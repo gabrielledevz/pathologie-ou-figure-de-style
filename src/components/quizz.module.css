@@ -33,13 +33,19 @@
 
 .question {
   height: 100%;
-  font-size: calc(100% + 3.5vw);
+  font-size: 50px;
   width: 70%;
   justify-content: center;
   text-align: center;
   align-items: center;
   display: flex;
   font-family: "Zeyada";
+}
+
+@media (max-width: 767px) {
+  .question {
+    font-size: 35px;
+  }
 }
 
 .score {
