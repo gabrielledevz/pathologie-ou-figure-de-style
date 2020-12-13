@@ -6,9 +6,10 @@ const FacebookIcon = (props) => (
     data-name="Calque 1"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
+    height="40"
     {...props}
   >
-    <title>{"iconfinder_Facebook_38138prime9"}</title>
+    <title>{"Facebook icon"}</title>
     <circle cx={256} cy={256} r={256} className={styles.buttonBackground} />
     <path
       className={styles.socialMediaMain}
