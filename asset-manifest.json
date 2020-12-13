@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/pathologie-ou-figure-de-style/static/css/main.6a9a8bfa.chunk.css",
-    "main.js": "/pathologie-ou-figure-de-style/static/js/main.cc9ffee3.chunk.js",
-    "main.js.map": "/pathologie-ou-figure-de-style/static/js/main.cc9ffee3.chunk.js.map",
-    "runtime-main.js": "/pathologie-ou-figure-de-style/static/js/runtime-main.5f40bec0.js",
-    "runtime-main.js.map": "/pathologie-ou-figure-de-style/static/js/runtime-main.5f40bec0.js.map",
-    "static/js/2.b1a97af2.chunk.js": "/pathologie-ou-figure-de-style/static/js/2.b1a97af2.chunk.js",
-    "static/js/2.b1a97af2.chunk.js.map": "/pathologie-ou-figure-de-style/static/js/2.b1a97af2.chunk.js.map",
-    "static/js/3.af4fa2a5.chunk.js": "/pathologie-ou-figure-de-style/static/js/3.af4fa2a5.chunk.js",
-    "static/js/3.af4fa2a5.chunk.js.map": "/pathologie-ou-figure-de-style/static/js/3.af4fa2a5.chunk.js.map",
+    "main.css": "/pathologie-ou-figure-de-style/static/css/main.831fe972.chunk.css",
+    "main.js": "/pathologie-ou-figure-de-style/static/js/main.388b6cf7.chunk.js",
+    "main.js.map": "/pathologie-ou-figure-de-style/static/js/main.388b6cf7.chunk.js.map",
+    "runtime-main.js": "/pathologie-ou-figure-de-style/static/js/runtime-main.06ee0977.js",
+    "runtime-main.js.map": "/pathologie-ou-figure-de-style/static/js/runtime-main.06ee0977.js.map",
+    "static/js/2.01aae191.chunk.js": "/pathologie-ou-figure-de-style/static/js/2.01aae191.chunk.js",
+    "static/js/2.01aae191.chunk.js.map": "/pathologie-ou-figure-de-style/static/js/2.01aae191.chunk.js.map",
+    "static/js/3.68f71ab9.chunk.js": "/pathologie-ou-figure-de-style/static/js/3.68f71ab9.chunk.js",
+    "static/js/3.68f71ab9.chunk.js.map": "/pathologie-ou-figure-de-style/static/js/3.68f71ab9.chunk.js.map",
     "index.html": "/pathologie-ou-figure-de-style/index.html",
-    "static/css/main.6a9a8bfa.chunk.css.map": "/pathologie-ou-figure-de-style/static/css/main.6a9a8bfa.chunk.css.map",
-    "static/js/2.b1a97af2.chunk.js.LICENSE.txt": "/pathologie-ou-figure-de-style/static/js/2.b1a97af2.chunk.js.LICENSE.txt"
+    "static/css/main.831fe972.chunk.css.map": "/pathologie-ou-figure-de-style/static/css/main.831fe972.chunk.css.map",
+    "static/js/2.01aae191.chunk.js.LICENSE.txt": "/pathologie-ou-figure-de-style/static/js/2.01aae191.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.5f40bec0.js",
-    "static/js/2.b1a97af2.chunk.js",
-    "static/css/main.6a9a8bfa.chunk.css",
-    "static/js/main.cc9ffee3.chunk.js"
+    "static/js/runtime-main.06ee0977.js",
+    "static/js/2.01aae191.chunk.js",
+    "static/css/main.831fe972.chunk.css",
+    "static/js/main.388b6cf7.chunk.js"
   ]
 }
