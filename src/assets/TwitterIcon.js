@@ -2,8 +2,14 @@ import * as React from "react";
 import styles from "../components/sharebuttons.module.css";
 
 const TwitterIcon = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" {...props}>
-    <title />
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1000 1000"
+    height="40"
+    {...props}
+  >
+    <title>{"Twitter button"}</title>
+
     <path
       className={styles.buttonBackground}
       d="M500 0c276.1 0 500 223.9 500 500s-223.9 500-500 500S0 776.1 0 500 223.9 0 500 0z"
