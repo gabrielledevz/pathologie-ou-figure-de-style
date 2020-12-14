@@ -19,7 +19,7 @@ const AnswerDetails = ({
         Exemple : «{esp}
         {example}
         {esp}» —{esp}
-        {author ? `${author}, ` : ""}
+        {author ? `${author},${esp}` : ""}
         <em>{source}</em>
       </p>
     )}
