@@ -37,11 +37,13 @@ const Quizz = ({ endTheGame }) => {
   };
 
   const displayNext = () => {
-    setTypeOfButtonClicked(QUESTION_TYPES.NONE);
-    setAnswerDisplayed(false);
+    if (answerDisplayed) {
+      setTypeOfButtonClicked(QUESTION_TYPES.NONE);
+      setAnswerDisplayed(false);
 
-    if (moveOnNextQuestion() === NO_QUESTION_LEFT) {
-      endTheGame();
+      if (moveOnNextQuestion() === NO_QUESTION_LEFT) {
+        endTheGame();
+      }
     }
   };
 
