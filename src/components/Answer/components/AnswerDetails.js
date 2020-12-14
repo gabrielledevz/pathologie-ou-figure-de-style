@@ -10,7 +10,8 @@ const AnswerDetails = ({
   <div className={styles.infoZone}>
     <div className={styles.definition}>
       <em>
-        {word}, {genre} :
+        {word}, {genre}
+        {esp}:
       </em>{" "}
       {definition}
     </div>
@@ -19,7 +20,7 @@ const AnswerDetails = ({
         Exemple : «{esp}
         {example}
         {esp}» —{esp}
-        {author ? `${author},${esp}` : ""}
+        {author ? `${author}, ` : ""}
         <em>{source}</em>
       </p>
     )}
