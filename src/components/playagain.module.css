@@ -8,16 +8,38 @@
 }
 
 .gameDonePanel {
-  padding-top: 30px;
+  padding-top: 3%;
   width: 60%;
-  padding-bottom: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-bottom: 3%;
   margin: auto;
   background-color: var(--color-transparent-bronze);
   border-radius: 15px;
   z-index: 1;
   position: relative;
+  display: flex;
+  text-align: center;
+}
+
+.share {
+  text-align: center;
+  width: 15%;
+  float: left;
+  display: inline-block;
+}
+
+@media (max-width: 767px) {
+  .gameDonePanel {
+    flex-direction: column;
+    width: 80%;
+    text-align: center;
+  }
+
+  .share {
+    width: 100%;
+    flex-direction: row;
+    bottom: 0;
+    margin-top: 10%;
+  }
 }
 
 .gameDonePanel:before {
@@ -33,11 +55,27 @@
   border-width: 2px;
   z-index: -1;
   border-radius: 15px;
+  display: inline-block;
+}
+
+.center {
+  width: 70%;
+  float: center;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  margin: auto;
+}
+
+.emptyColumn {
+  width: 15%;
+  float: right;
+  padding: 1px;
 }
 
 .scoreComment {
   color: var(--color-dark-blue);
-  height: 10%;
+  height: 20%;
 }
 
 .scoreComment p {
@@ -47,7 +85,7 @@
 
 .finalScore {
   color: var(--color-blue);
-  height: 60%;
+  height: 40%;
   padding-bottom: 20px;
   margin-bottom: 10px;
 }
@@ -55,17 +93,17 @@
 .finalScore p {
   margin-bottom: 5px;
   margin-top: 30px;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .finalScoreNumber {
-  font-size: 40px;
+  font-size: 50px;
   font-weight: bold;
 }
 
 .restartButton {
-  margin-bottom: 15px;
   background-color: var(--color-pink);
+  margin-top: 5%;
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 10%;

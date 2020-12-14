@@ -23,12 +23,8 @@
   }
 }
 
-.share {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  float: left;
+.emptyColumn {
   width: 15%;
-  height: 100%;
 }
 
 .question {

@@ -1,21 +1,28 @@
 .buttons {
-  width: 50px;
-  margin: auto;
-  float: left;
+  padding: 10px;
+  padding-left: 3%;
+  padding-right: 3%;
+  margin: 0;
+  width: 40px;
+}
+
+@media (max-width: 767px) {
+  .buttons {
+    width: 100%;
+  }
 }
 
 .socialMediaButton {
   outline: none;
-}
-
-.socialMediaIcon {
-  width: 40px;
-  height: 40px;
-  overflow: visible;
+  width: 50px;
+  height: 50px;
+  outline: none;
+  background-color: red;
+  padding: 10px;
 }
 
 .buttonBackground {
-  fill: var(--color-yellow);
+  fill: #ffffff00;
   transition-property: fill;
   transition-duration: 400ms;
   transition-timing-function: ease-in-out;
@@ -23,7 +30,7 @@
 }
 
 .socialMediaMain {
-  fill: var(--color-dark-bronze);
+  fill: var(--color-blue);
   transition-property: fill;
   transition-duration: 400ms;
   transition-timing-function: ease-in-out;
@@ -31,9 +38,9 @@
 }
 
 .socialMediaIcon:hover .buttonBackground {
-  fill: var(--color-dark-blue);
+  fill: var(--color-yellow);
 }
 
 .socialMediaIcon:hover .socialMediaMain {
-  fill: var(--color-dark-bronze);
+  fill: var(--color-dark-blue);
 }

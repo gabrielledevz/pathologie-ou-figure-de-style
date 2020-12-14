@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useGameState } from "../hooks/gameState";
 import Answer from "./Answer/Answer";
 import AnswerButton from "./AnswerButton";
-import ShareButtons from "./ShareButtons";
 import { CSSTransition } from "react-transition-group";
 import styles from "./quizz.module.css";
 
@@ -49,9 +48,7 @@ const Quizz = ({ endTheGame }) => {
   return (
     <div className={styles.quizz}>
       <div className={styles.upperPart}>
-        <div className={styles.share}>
-          <ShareButtons />
-        </div>
+        <div className={styles.emptyColumn}></div>
         <div className={styles.question}>
           <CSSTransition
             in={!answerDisplayed}
