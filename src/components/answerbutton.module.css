@@ -1,9 +1,32 @@
+.answerButtonZone {
+  margin-top: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.scoreIncrease {
+  margin-top: -30px;
+  margin-bottom: 0px;
+  margin-left: 90px;
+  position: absolute;
+  font-size: 40px;
+  font-weight: bold;
+  -webkit-animation: ascend 2s forwards;
+  color: var(--color-dark-bronze);
+}
+
+@keyframes ascend {
+  100% {
+    transform: translateY(-60px);
+    opacity: 0;
+  }
+}
+
 .answerButton {
   height: 80%;
   width: 200px;
   margin-left: 20px;
   margin-right: 20px;
-  margin-top: 10px;
   border-radius: 13px;
   padding-top: 15px;
   padding-bottom: 15px;

@@ -86,11 +86,13 @@ const Quizz = ({ endTheGame }) => {
             onClick={handleButton(QUESTION_TYPES.PATHOLOGIE)}
             buttonType={QUESTION_TYPES.PATHOLOGIE}
             typeClicked={typeOfButtonClicked}
+            goodAnswer={answerIsCorrect}
           />
           <AnswerButton
             onClick={handleButton(QUESTION_TYPES.FIGURE)}
             buttonType={QUESTION_TYPES.FIGURE}
             typeClicked={typeOfButtonClicked}
+            goodAnswer={answerIsCorrect}
           />
         </div>
         <CSSTransition
