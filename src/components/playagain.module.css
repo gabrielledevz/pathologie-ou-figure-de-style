@@ -25,6 +25,7 @@
   width: 15%;
   float: left;
   display: inline-block;
+  margin: auto;
 }
 
 @media (max-width: 767px) {
