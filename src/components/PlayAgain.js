@@ -55,7 +55,7 @@ const PlayAgain = ({ startNewGame }) => {
             onClick={startAgain}
             data-cy="play-again-button"
           >
-            {isLastGame ? "Rejouer au jeu" : "Continuer à jouer"}
+            {isLastGame ? "Rejouer au jeu" : "Répondre à plus de questions"}
           </button>
         </div>
         <div className={styles.share}>
