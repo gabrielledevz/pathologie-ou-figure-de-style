@@ -59,7 +59,7 @@ const PlayAgain = ({ startNewGame }) => {
           </button>
         </div>
         <div className={styles.share}>
-          <ShareButtons />
+          <ShareButtons score={`${score} sur ${NB_QUESTIONS_PER_GAME}`} />
         </div>
       </div>
     </div>
