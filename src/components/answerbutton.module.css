@@ -22,6 +22,12 @@
   }
 }
 
+@media (max-width: 767px) {
+  .scoreIncrease {
+    margin-left: 210px;
+  }
+}
+
 .answerButton {
   height: 80%;
   width: 200px;
