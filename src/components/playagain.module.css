@@ -86,9 +86,8 @@
 
 .finalScore {
   color: var(--color-blue);
-  height: 40%;
-  padding-bottom: 20px;
-  margin-bottom: 10px;
+  height: 100%;
+  margin-bottom: 20px;
 }
 
 .finalScore p {
@@ -104,7 +103,7 @@
 
 .restartButton {
   background-color: var(--color-pink);
-  margin-top: 5%;
+  margin-top: 10px;
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 10%;
