@@ -38,6 +38,7 @@ const Quizz = ({ endTheGame }) => {
 
   const displayNext = () => {
     if (answerDisplayed) {
+      window.scrollTo(0, 0);
       setTypeOfButtonClicked(QUESTION_TYPES.NONE);
       setAnswerDisplayed(false);
 
