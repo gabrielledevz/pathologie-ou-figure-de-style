@@ -44,7 +44,6 @@
   cursor: pointer;
   outline: none;
   align: right;
-  overflow: auto;
 }
 
 .nextButton:hover {

@@ -10,7 +10,6 @@ body {
   height: 100%;
   background-color: var(--color-yellow);
   font-family: "Sintony";
-  overflow: auto;
 }
 
 #root {

@@ -2,6 +2,10 @@
   padding-top: 20px;
   text-align: left;
   font-size: 13px;
+  height: 100%;
+  margin: 0em;
+  overflow-y: auto;
+  height: 100px;
 }
 
 .definition {
