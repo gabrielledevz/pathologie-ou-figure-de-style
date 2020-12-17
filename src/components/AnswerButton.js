@@ -16,7 +16,11 @@ const AnswerButton = ({ typeClicked, buttonType, onClick, goodAnswer }) => {
       <button
         disabled={typeClicked !== QUESTION_TYPES.NONE}
         className={`${styles.answerButton} ${
-          clickedButton ? `${styles.buttonSelected}` : ""
+          clickedButton
+            ? `${styles.buttonSelected} ${
+                goodAnswer ? "" : `${styles.wobbling}`
+              }`
+            : ""
         }`}
         onClick={onClick}
         data-cy="answer-button"

@@ -53,3 +53,22 @@
   background-color: var(--color-blue);
   color: var(--color-pink);
 }
+
+.wobbling {
+  animation: wobble 0.5s 1;
+}
+
+@keyframes wobble {
+  25% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
