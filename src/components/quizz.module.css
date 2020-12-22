@@ -29,13 +29,13 @@
 
 .question {
   height: 100%;
-  font-size: 50px;
+  font-size: 40px;
   width: 70%;
   justify-content: center;
   text-align: center;
   align-items: center;
   display: flex;
-  font-family: "Zeyada";
+  font-family: "Berkshire Swash";
 }
 
 @media (max-width: 767px) {

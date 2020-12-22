@@ -23,6 +23,15 @@ const App = () => {
             <PlayAgain startNewGame={() => setGameIsOn(true)} />
           )}
         </div>
+        <footer>
+          <a
+            href="https://github.com/gabrielledevz"
+            target="_blank"
+            rel="noreferrer"
+          >
+            ✎ par gaboule
+          </a>
+        </footer>
       </div>
     </GameContext.Provider>
   );
