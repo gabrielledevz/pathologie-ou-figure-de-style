@@ -13,6 +13,15 @@ const App = () => {
   return (
     <GameContext.Provider value={value}>
       <div className={styles.window}>
+        <header>
+          <a
+            href="https://github.com/gabrielledevz"
+            target="_blank"
+            rel="noreferrer"
+          >
+            ✎ par gaboule
+          </a>
+        </header>
         <div className={styles.title}>
           <div>Pathologie ou figure de style ?</div>
         </div>
@@ -23,15 +32,6 @@ const App = () => {
             <PlayAgain startNewGame={() => setGameIsOn(true)} />
           )}
         </div>
-        <footer>
-          <a
-            href="https://github.com/gabrielledevz"
-            target="_blank"
-            rel="noreferrer"
-          >
-            ✎ par gaboule
-          </a>
-        </footer>
       </div>
     </GameContext.Provider>
   );
